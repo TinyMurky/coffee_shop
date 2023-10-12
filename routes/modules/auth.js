@@ -21,7 +21,7 @@ router.get('/google/callback',
       status: 'success',
       data: {
         token,
-        userId: req.user._id
+        userId: req.user.id
       }
     })
   })
