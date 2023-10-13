@@ -6,7 +6,6 @@ const cors = require('cors')
 const express = require('express')
 const methodOverride = require('method-override')
 const path = require('path')
-const flash = require('connect-flash')
 
 const passport = require('./config/passport')
 const routes = require('./routes')
@@ -19,10 +18,8 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json()) // for test
 
-
 // passport 初始化
-
-// app.use(passport.initialize())
+app.use(passport.initialize())
 // app.use(passport.session())
 
 // static folder
@@ -40,7 +37,7 @@ app.use((req, res, next) => {
   next()
 })
 
-app.use(routes)
+app.use('/api', routes)
 app.listen(PORT, () => console.log(`Coffee shop app listening on port ${PORT}!`))
 
 module.exports = app
