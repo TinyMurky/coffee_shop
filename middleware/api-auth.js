@@ -5,7 +5,6 @@ const authenticated = (req, res, next) => {
     if (err || !user) {
       throw new AuthorizationError('Unauthorized')
     }
-
     req.user = user
     next()
   })(req, res, next)
