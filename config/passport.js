@@ -49,7 +49,7 @@ async function (accessToken, refreshToken, profile, done) {
         introduction: `Hello, I am ${name}`,
         isAdmin: false,
         avatar,
-        hasSubscribed: false
+        hadSubscribed: false
       })
       await newUser.save()
       return done(null, newUser)
