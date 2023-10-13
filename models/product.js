@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate (models) {
       // define association here
-      Product.hasMany(models.Images, { foreignKey: 'productId' })
+      Product.hasMany(models.Image, { foreignKey: 'productId' })
+      Product.hasMany(models.Variant, { foreignKey: 'productId' })
     }
   }
   Product.init({
@@ -23,10 +24,12 @@ module.exports = (sequelize, DataTypes) => {
     sour: DataTypes.INTEGER,
     bitter: DataTypes.INTEGER,
     thickness: DataTypes.INTEGER,
+    isCoffee: DataTypes.BOOLEAN,
     viewCount: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Product',
+    tableName: 'Products',
     underscored: true
   })
   return Product

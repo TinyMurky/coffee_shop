@@ -2,41 +2,20 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Products', {
+    await queryInterface.createTable('Variants', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      product_id: {
+        type: Sequelize.INTEGER
+      },
+      variant_name: {
         type: Sequelize.STRING
       },
-      description: {
-        type: Sequelize.STRING
-      },
-      stock: {
-        type: Sequelize.INTEGER
-      },
-      roast: {
-        type: Sequelize.STRING
-      },
-      aroma: {
-        type: Sequelize.INTEGER
-      },
-      sour: {
-        type: Sequelize.INTEGER
-      },
-      bitter: {
-        type: Sequelize.INTEGER
-      },
-      thickness: {
-        type: Sequelize.INTEGER
-      },
-      is_coffee: {
-        type: Sequelize.BOOLEAN
-      },
-      view_count: {
+      variant_price: {
         type: Sequelize.INTEGER
       },
       created_at: {
@@ -50,6 +29,6 @@ module.exports = {
     })
   },
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('Products')
+    await queryInterface.dropTable('Variants')
   }
 }
