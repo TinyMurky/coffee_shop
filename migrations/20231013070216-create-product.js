@@ -16,25 +16,25 @@ module.exports = {
         type: Sequelize.STRING
       },
       stock: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       roast: {
         type: Sequelize.STRING
       },
       aroma: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       sour: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       bitter: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       thickness: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       view_count: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       created_at: {
         allowNull: false,
