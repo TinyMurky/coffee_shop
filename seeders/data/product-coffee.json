@@ -5,7 +5,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/曼特寧巴西.png?fit=540%2C540&ssl=1"
       ],
-      "price": 22
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 22
+        }
+      ]
     },
     "description": "風味：成熟熱帶水果的香甜風味，剛好的苦味，奶油般的質感",
     "roast": "中深焙",
@@ -20,7 +25,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/07/巴紐.png?fit=1663%2C1080&ssl=1"
       ],
-      "price": 22
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 22
+        }
+      ]
     },
     "description": "風味：厚實的口感，具有濃厚的焦糖風味",
     "roast": "中焙",
@@ -35,7 +45,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/摩卡.png?fit=540%2C540&ssl=1"
       ],
-      "price": 25
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 25
+        }
+      ]
     },
     "description": "風味：帶有恰到好處的苦味和酸味，也能喝到果酸味，味道深厚濃郁",
     "roast": "中焙",
@@ -50,7 +65,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/新幾內亞高山精選.png?fit=540%2C540&ssl=1"
       ],
-      "price": 25
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 25
+        }
+      ]
     },
     "description": "風味：酸味感佳，散發熱帶水果的風味與甜味",
     "roast": "中焙",
@@ -65,7 +85,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/巴西小丸子.png?fit=540%2C540&ssl=1"
       ],
-      "price": 30
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 30
+        }
+      ]
     },
     "description": "風味：堅果巧克力的風味，豆形小巧可愛，喝起來的回甘度高",
     "roast": "中淺焙",
@@ -80,7 +105,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/印度馬拉巴季風豆.png?fit=540%2C540&ssl=1"
       ],
-      "price": 30
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 30
+        }
+      ]
     },
     "description": "風味：透過特殊處裡的馬拉巴季風豆，帶有奶油麥子的香味，口感厚實",
     "roast": "中深焙",
@@ -95,7 +125,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/肯亞AA.png?fit=540%2C540&ssl=1"
       ],
-      "price": 30
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 30
+        }
+      ]
     },
     "description": "風味：可感受到高質感香氣，散發高雅甜味",
     "roast": "中深焙",
@@ -110,7 +145,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/特級藍山.png?fit=540%2C540&ssl=1"
       ],
-      "price": 30
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 30
+        }
+      ]
     },
     "description": "風味：具有濃郁度及豐富層次感的酸味",
     "roast": "中深焙",
@@ -125,7 +165,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/巴西國寶黃波旁.png?fit=540%2C540&ssl=1"
       ],
-      "price": 30
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 30
+        }
+      ]
     },
     "description": "風味：具有柑橘蜂蜜香，口感香甜清爽",
     "roast": "中焙",
@@ -140,7 +185,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/巴西國寶黃波旁.png?fit=540%2C540&ssl=1"
       ],
-      "price": 30
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 30
+        }
+      ]
     },
     "description": "風味：舌頭清香，清爽萊姆味，容易入喉",
     "roast": "淺焙",
@@ -155,7 +205,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/薇薇特南果.png?fit=540%2C540&ssl=1"
       ],
-      "price": 30
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 30
+        }
+      ]
     },
     "description": "風味：豐富的濃郁度，水果系酸味，宛如巧克力的芳香味道",
     "roast": "中焙",
@@ -170,7 +225,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/樹蛙紅蜜.png?fit=540%2C540&ssl=1"
       ],
-      "price": 30
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 30
+        }
+      ]
     },
     "description": "風味：具有豐富的酸味與果實慢慢熟成般的甜味",
     "roast": "中焙",
@@ -185,7 +245,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/利姆.png?fit=540%2C540&ssl=1"
       ],
-      "price": 35
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 35
+        }
+      ]
     },
     "description": "風味：紅茶草本植物的花香",
     "roast": "中焙",
@@ -200,7 +265,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/班莎.png?fit=540%2C540&ssl=1"
       ],
-      "price": 35
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 35
+        }
+      ]
     },
     "description": "風味：檸檬皮、柑橘、柚子香氣",
     "roast": "淺焙",
@@ -215,7 +285,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/07/古吉阿朵拉-3.png?fit=1663%2C1080&ssl=1"
       ],
-      "price": 35
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 35
+        }
+      ]
     },
     "description": "風味：柚子、巧克力",
     "roast": "淺焙",
@@ -230,7 +305,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/果丁丁.png?fit=540%2C540&ssl=1"
       ],
-      "price": 35
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 35
+        }
+      ]
     },
     "description": "風味：新鮮鳳梨、芒果的香氣",
     "roast": "淺焙",
@@ -245,7 +325,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/艾瑞莎.png?fit=540%2C540&ssl=1"
       ],
-      "price": 35
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 35
+        }
+      ]
     },
     "description": "風味：紅茶、佛手柑、茉莉花香",
     "roast": "淺焙",
@@ -260,7 +345,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/艾瑞莎.png?fit=540%2C540&ssl=1"
       ],
-      "price": 35
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 35
+        }
+      ]
     },
     "description": "風味：花果香、巧克力堅果",
     "roast": "淺中焙",
@@ -275,7 +365,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/薩爾瓦多帕卡瑪拉.png?fit=540%2C540&ssl=1"
       ],
-      "price": 40
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 40
+        }
+      ]
     },
     "description": "風味：雪松油桃味，尾韻為烤真果香",
     "roast": "淺焙",
@@ -290,7 +385,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/馬拉威藝伎.png?fit=540%2C540&ssl=1"
       ],
-      "price": 40
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 40
+        }
+      ]
     },
     "description": "風味：水蜜桃、蜂蜜、奶油",
     "roast": "淺焙",
@@ -305,7 +405,12 @@
       "image": [
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/哥倫比亞藝伎.png?fit=540%2C540&ssl=1"
       ],
-      "price": 45
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 45
+        }
+      ]
     },
     "description": "風味：有蜂蜜的香甜，也有茶香的回甘",
     "roast": "淺焙",
