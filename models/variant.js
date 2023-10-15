@@ -12,6 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate (models) {
       // define association here
       Variant.belongsTo(models.Product, { foreignKey: 'productId' })
+
+      Variant.hasMany(models.CartItem, { foreignKey: 'variantId' })
     }
   }
   Variant.init({
@@ -21,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Variant',
-    tableName: 'Variant',
+    tableName: 'Variants',
     underscored: true
   })
   return Variant
