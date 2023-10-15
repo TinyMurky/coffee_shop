@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
+    "purge_sql": "npx sequelize db:seed:undo:all && npx sequelize db:migrate:undo:all",
+    "build_sql": " npx sequelize db:migrate && npx sequelize db:seed:all",
+    "build_db": "npx sequelize db:drop && npx sequelize db:create --charset utf8mb4 --collate utf8mb4_unicode_ci",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "seangotjuice, TinyMurky",
