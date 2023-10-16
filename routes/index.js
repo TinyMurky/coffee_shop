@@ -1,10 +1,12 @@
 const express = require('express')
 const router = express.Router()
 const auth = require('./modules/auth')
+const product = require('./modules/product')
 const { authenticated } = require('../middleware/api-auth')
-const errorHandler = require('../libs/error/error-handler')
+const errorHandler = require('../middleware/error-handler')
 
 router.use('/auth', auth)
+router.use('/products', authenticated, product)
 router.get('/', (req, res) => {
   res.send('<h1>hi</h1>')
 })
