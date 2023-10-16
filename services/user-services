@@ -1,8 +1,0 @@
-// this module has no function
-const bcrypt = require('bcrypt-nodejs')
-const jwt = require('jsonwebtoken')
-const sequelize = require('sequelize')
-const { Op } = require('sequelize')
-const {
-  User
-} = require('../models')
