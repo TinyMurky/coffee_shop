@@ -4,7 +4,6 @@ const auth = require('./modules/auth')
 const product = require('./modules/product')
 const { authenticated } = require('../middleware/api-auth')
 const cartController = require('../controllers/cart-controller')
-const errorHandler = require('../libs/error/error-handler')
 const errorHandler = require('../middleware/error-handler')
 
 router.use('/auth', auth)
