@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Product.hasMany(models.Image, { foreignKey: 'productId' })
       Product.hasMany(models.Variant, { foreignKey: 'productId' })
+      Product.hasMany(models.CartItem, { foreignKey: 'productId' })
+      Product.hasMany(models.OrderItem, { foreignKey: 'productId' })
+      Product.hasMany(models.Comment, { foreignKey: 'productId' })
     }
   }
   Product.init({
