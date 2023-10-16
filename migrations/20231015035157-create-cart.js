@@ -13,7 +13,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       status: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        defaultValue: 'cart status test'
       },
       created_at: {
         allowNull: false,

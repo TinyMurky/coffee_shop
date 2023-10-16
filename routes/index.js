@@ -2,9 +2,16 @@ const express = require('express')
 const router = express.Router()
 const auth = require('./modules/auth')
 const { authenticated } = require('../middleware/api-auth')
+const cartController = require('../controllers/cart-controller')
 const errorHandler = require('../libs/error/error-handler')
 
 router.use('/auth', auth)
+
+// cart
+router.get('/cart', cartController.getCartItems)
+router.post('/cart/:id', cartController.addCartItem)
+router.delete('/cart/:id', cartController.removeCartItem)
+
 router.get('/', (req, res) => {
   res.send('<h1>hi</h1>')
 })
