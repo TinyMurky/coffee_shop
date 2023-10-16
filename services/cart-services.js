@@ -4,22 +4,22 @@ const cartServices = {
   getCartItems: async (req, cb) => {
     try {
       const userId = 3
-      const cartId = await Cart.findOne({ where: { userId } })
-      const cartItems = await CartItem.findAll({ where: { cartId } })
-      //   if (!cartId) throw new NotFoundError('該使用者目前沒有購物車')
-      //   if (!cartItems) throw new NotFoundError('目前沒有任何商品在購物車！')
-
-      //   cartItems = await cartItems.map(tweet => {
-      //     return {
-      //       ...tweet.dataValues,
-      //       description: subDescription,
-      //       createdAt: relativeTimeFromNow(tweet.dataValues.createdAt),
-      //       isLiked: !!(tweet.Likes.some(like => like.UserId === helpers.getUser(req).id)),
-      //       replyCount: tweet.Replies.length,
-      //       likeCount: tweet.Likes.length
-      //     }
-      //   })
-      console.log(cartId)
+      const cart = await Cart.findOne({ where: { userId } })
+      let cartItems = await CartItem.findAll({ where: { cartId: cart.id }, include: [Product, Variant] })
+      if (!cart) throw new NotFoundError('該使用者目前沒有購物車')
+      if (!cartItems) throw new NotFoundError('目前沒有任何商品在購物車！')
+      cartItems = await cartItems.map(item => {
+        return {
+          productId: item.productId,
+          productName: item.Product.name,
+          productDescription: item.Product.description,
+          productVariant: item.Variant.variantName,
+          productPrice: item.Variant.variantPrice,
+          productQuantity: item.quantity,
+          createdTime: item.createdAt
+        }
+      })
+      console.log(cart)
       console.log(cartItems)
       cb(null, cartItems)
     } catch (err) {
