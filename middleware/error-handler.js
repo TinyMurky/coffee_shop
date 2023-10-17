@@ -4,7 +4,7 @@ function errorHandler (err, req, res, next) {
     res.status(err.status).json({ status: 'error', message: err.message })
   } else {
     // 如果不是一個自定義錯誤，返回一個通用的500 Internal Server Error
-    res.status(500).json({ status: 'error', message: 'Internal Server Error' })
+    res.status(500).json({ status: 'error', message: err.message })
   }
 
   // 預留，將error拋出去給以後紀錄log使用
