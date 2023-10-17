@@ -5,8 +5,8 @@ const cartServices = {
     try {
       const userId = 3
       const cart = await Cart.findOne({ where: { userId } })
-      let cartItems = await CartItem.findAll({ where: { cartId: cart.id }, include: [Product, Variant] })
       if (!cart) throw new NotFoundError('該使用者目前沒有購物車')
+      let cartItems = await CartItem.findAll({ where: { cartId: cart.id }, include: [Product, Variant] })
       if (!cartItems) throw new NotFoundError('目前沒有任何商品在購物車！')
       cartItems = await cartItems.map(item => {
         return {
