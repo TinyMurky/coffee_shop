@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
 
       // 一對多
-      CartItem.belongsTo(models.Cart)
-      CartItem.belongsTo(models.Variant)
-      CartItem.belongsTo(models.Product)
+      CartItem.belongsTo(models.Cart, { foreignKey: 'cartId' })
+      CartItem.belongsTo(models.Variant, { foreignKey: 'variantId' })
+      CartItem.belongsTo(models.Product, { foreignKey: 'productId' })
     }
   }
   CartItem.init({

@@ -53,7 +53,7 @@ const facebookStrategy = new FacebookStrategy(
           const salt = await bcrypt.genSalt(10)
           const hash = await bcrypt.hash(password, salt)
           const newUser = User.build({
-            name: `${profile._json.first_name}` + `${profile._json.last_name}`,
+            name: `${profile._json.last_name}` + ` ${profile._json.first_name}`,
             email: profile._json.email,
             account: profile._json.email,
             password: hash,
