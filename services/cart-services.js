@@ -1,14 +1,48 @@
 const { NotFoundError } = require('../libs/error/custom-error')
 const { CartItem, Cart, Product, Variant } = require('../models')
 const cartServices = {
+  // getCartItems: async (req, cb) => {
+  //   try {
+  //     const userId = req.user.id
+  //     const cart = await Cart.findOne({ where: { userId } })
+  //     if (!cart) throw new NotFoundError('該使用者目前沒有購物車')
+  //     let cartItems = await CartItem.findAll({ where: { cartId: cart.id }, include: [Product, Variant] })
+  //     if (!cartItems) throw new NotFoundError('目前沒有任何商品在購物車！')
+  //     cartItems = await cartItems.map(item => {
+  //       return {
+  //         productId: item.productId,
+  //         productName: item.Product.name,
+  //         productDescription: item.Product.description,
+  //         productVariant: item.Variant.variantName,
+  //         productPrice: item.Variant.variantPrice,
+  //         productQuantity: item.quantity,
+  //         createdTime: item.createdAt
+  //       }
+  //     })
+  //     console.log(cart)
+  //     console.log(cartItems)
+  //     cb(null, cartItems)
+  //   } catch (err) {
+  //     cb(err)
+  //   }
+  // },
   getCartItems: async (req, cb) => {
     try {
       const userId = req.user.id
-      const cart = await Cart.findOne({ where: { userId } })
+      const cart = await Cart.findOne({
+        where: { userId },
+        include: [
+          {
+            model: CartItem,
+            include: [Product, Variant]
+          }
+        ]
+      })
+
       if (!cart) throw new NotFoundError('該使用者目前沒有購物車')
-      let cartItems = await CartItem.findAll({ where: { cartId: cart.id }, include: [Product, Variant] })
-      if (!cartItems) throw new NotFoundError('目前沒有任何商品在購物車！')
-      cartItems = await cartItems.map(item => {
+      if (!cart.CartItems || cart.CartItems.length === 0) { throw new NotFoundError('目前沒有任何商品在購物車！') }
+
+      const cartItems = cart.CartItems.map(item => {
         return {
           productId: item.productId,
           productName: item.Product.name,
@@ -19,6 +53,7 @@ const cartServices = {
           createdTime: item.createdAt
         }
       })
+
       console.log(cart)
       console.log(cartItems)
       cb(null, cartItems)
@@ -37,7 +72,7 @@ const cartServices = {
       if (!quantity || !variantName) throw new NotFoundError('商品的數量和規格未提供')
       if (!variant) throw new NotFoundError('此商品不存在')
 
-      console.log(quantity, productId, cart[0].id, variant.id)
+      // console.log(quantity, productId, cart[0].id, variant.id)
       const cartItem = await CartItem.create({ cartId: cart[0].id, productId, variantId: variant.id, quantity })
 
       console.log(cartItem)

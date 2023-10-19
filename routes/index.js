@@ -9,24 +9,7 @@ const errorHandler = require('../middleware/error-handler')
 router.use('/auth', auth)
 router.use('/cart', authenticated, cart)
 router.use('/products', product)
-router.get('/', (req, res) => {
-  res.send('<h1>hi</h1>')
-})
 
-router.get('/testFacebook', authenticated, (req, res) => {
-  res.send({
-    status: 'success',
-    message: 'login success facebook'
-  })
-})
-router.get('/testLogin', authenticated, (req, res) => {
-  res.send({
-    status: 'success',
-    message: 'Login success'
-  })
-})
-
-router.use('/api/user', auth)
 router.use('/', errorHandler)
 
 module.exports = router
