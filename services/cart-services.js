@@ -1,5 +1,5 @@
 const { NotFoundError } = require('../libs/error/custom-error')
-const { CartItem, Cart, User, Product, Variant } = require('../models')
+const { CartItem, Cart, Product, Variant } = require('../models')
 const cartServices = {
   getCartItems: async (req, cb) => {
     try {
@@ -45,7 +45,36 @@ const cartServices = {
     } catch (err) {
       cb(err)
     }
+  },
+  removeCartItem: async (req, cb) => {
+    try {
+      const userId = 3 // 假设你已经有了 userId，可以根据实际情况来获取
+      const cartItemId = req.params.id
+      // 首先，你需要检查用户是否拥有该购物车项
+      const cartItem = await CartItem.findOne({
+        where: { id: cartItemId },
+        include: [
+          {
+            model: Cart,
+            where: { userId }
+          }
+        ]
+      })
+
+      if (!cartItem) {
+        throw new NotFoundError('找不到要删除的购物车项')
+      }
+
+      // 如果购物车项存在并且属于当前用户，你可以删除它
+      await cartItem.destroy()
+
+      // 返回成功消息或其他响应
+      cb(null, { message: '已删除一筆購物車項目' })
+    } catch (err) {
+      cb(err)
+    }
   }
+
 }
 
 module.exports = cartServices
