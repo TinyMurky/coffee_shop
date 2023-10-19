@@ -7,7 +7,7 @@ const { authenticated } = require('../middleware/api-auth')
 const errorHandler = require('../middleware/error-handler')
 
 router.use('/auth', auth)
-router.use('/cart', cart)
+router.use('/cart', authenticated, cart)
 router.use('/products', product)
 router.get('/', (req, res) => {
   res.send('<h1>hi</h1>')

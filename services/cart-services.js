@@ -3,7 +3,7 @@ const { CartItem, Cart, Product, Variant } = require('../models')
 const cartServices = {
   getCartItems: async (req, cb) => {
     try {
-      const userId = 3
+      const userId = req.user.id
       const cart = await Cart.findOne({ where: { userId } })
       if (!cart) throw new NotFoundError('該使用者目前沒有購物車')
       let cartItems = await CartItem.findAll({ where: { cartId: cart.id }, include: [Product, Variant] })
@@ -28,7 +28,7 @@ const cartServices = {
   },
   addCartItem: async (req, cb) => {
     try {
-      const userId = 3
+      const userId = req.user.id
       const productId = req.params.id
       const { quantity, variantName } = req.body
       const cart = await Cart.findOrCreate({ where: { userId } })
@@ -48,7 +48,7 @@ const cartServices = {
   },
   removeCartItem: async (req, cb) => {
     try {
-      const userId = 3 // 假设你已经有了 userId，可以根据实际情况来获取
+      const userId = req.user.id
       const cartItemId = req.params.id
       // 首先，你需要检查用户是否拥有该购物车项
       const cartItem = await CartItem.findOne({
