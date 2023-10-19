@@ -16,10 +16,13 @@ module.exports = (sequelize, DataTypes) => {
       Product.hasMany(models.CartItem, { foreignKey: 'productId' })
       Product.hasMany(models.OrderItem, { foreignKey: 'productId' })
       Product.hasMany(models.Comment, { foreignKey: 'productId' })
+
+      Product.belongsTo(models.Category, { foreignKey: 'categoryId' })
     }
   }
   Product.init({
     name: DataTypes.STRING,
+    categoryId: DataTypes.INTEGER,
     description: DataTypes.STRING,
     stock: DataTypes.INTEGER,
     roast: DataTypes.STRING,

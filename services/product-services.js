@@ -1,23 +1,26 @@
-const { Product } = require('../models')
-const pagiHelper = require('../helpers/pagination-helpers')
+const { Product, Category, Variant, Image } = require('../models')
 const customError = require('../libs/error/custom-error')
 const productHelpers = require('../helpers/product-helpers')
-const productServices = {
-  getAllProducts: async ({ isCoffee = true, limit = null, page = 0 } = {}) => {
-    const offset = pagiHelper.getOffset(limit, page)
 
-    const attributes = productHelpers.chooseProductsAttriubites(isCoffee)
+const productServices = {
+  getAllProducts: async (isUtensil = true) => {
+    const attributes = productHelpers.chooseProductsAttriubites(isUtensil)
 
     const productDatas = await Product.findAll({
       where: {
-        isCoffee
+        isCoffee: !isUtensil
       },
       attributes,
+      include: [
+        {
+          model: Image,
+          require: true,
+          attributes: ['id', 'imgUrl']
+        }
+      ],
       require: true,
       raw: true,
-      nest: true,
-      offset,
-      limit
+      nest: true
     })
 
     if (!productDatas) {
@@ -26,19 +29,57 @@ const productServices = {
 
     return productDatas
   },
-  getProduct: async (id, hideFlavor = false) => {
-    const attributes = productHelpers.chooseProductsAttriubites(!hideFlavor) // hideFlavor是 isCoffee的相反
-
-    const productData = await Product.findByPk(id, {
-      attributes,
+  getAllProductsGroupByCategory: async () => {
+    // 不加raw, nest才會正確顯示結構
+    const productsByCategory = await Category.findAll({
+      include: [
+        {
+          model: Product,
+          require: true,
+          include: [
+            {
+              model: Image,
+              require: true,
+              attributes: ['id', 'imgUrl']
+            }
+          ]
+        }
+      ],
+      order: [[Product, 'id', 'ASC']],
+      attributes: ['id', 'category'],
       require: true
+    })
+
+    if (!productsByCategory) {
+      throw new customError.NotFoundError('Products not found')
+    }
+
+    return productsByCategory
+  },
+  getProduct: async (id) => {
+    const productData = await Product.findByPk(id, {
+      require: true,
+      include: [
+        {
+          model: Image,
+          require: true,
+          attributes: ['id', 'imgUrl']
+        },
+        {
+          model: Variant,
+          require: true,
+          attributes: ['id', 'variantName', 'variantPrice']
+        }
+      ],
+      raw: true,
+      nest: true
     })
 
     if (!productData) {
       throw new customError.NotFoundError('Product not found')
     }
 
-    return productData.toJSON()
+    return productData
   }
 }
 module.exports = productServices
