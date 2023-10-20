@@ -18,9 +18,7 @@ const productServices = {
           attributes: ['id', 'imgUrl']
         }
       ],
-      require: true,
-      raw: true,
-      nest: true
+      require: true
     })
 
     if (!productDatas) {
@@ -70,9 +68,7 @@ const productServices = {
           require: true,
           attributes: ['id', 'variantName', 'variantPrice']
         }
-      ],
-      raw: true,
-      nest: true
+      ]
     })
 
     if (!productData) {
