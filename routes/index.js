@@ -8,7 +8,7 @@ const errorHandler = require('../middleware/error-handler')
 
 router.use('/auth', auth)
 router.use('/cart', authenticated, cart)
-router.use('/products', product)
+router.use('/products', product) // 需要提供給未登入用戶看
 
 router.use('/', errorHandler)
 

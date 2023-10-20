@@ -1,245 +1,5 @@
 [
   {
-    "name": "曼特寧・巴西",
-    "child": {
-      "image": [
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/曼特寧巴西.png?fit=540%2C540&ssl=1"
-      ],
-      "variant": [
-        {
-          "variant_name": "30g",
-          "variant_price": 22
-        }
-      ]
-    },
-    "description": "風味：成熟熱帶水果的香甜風味，剛好的苦味，奶油般的質感",
-    "roast": "中深焙",
-    "aroma": 5,
-    "sour": 2,
-    "bitter": 2,
-    "thickness": 3
-  },
-  {
-    "name": "巴紐・曼特寧",
-    "child": {
-      "image": [
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/07/巴紐.png?fit=1663%2C1080&ssl=1"
-      ],
-      "variant": [
-        {
-          "variant_name": "30g",
-          "variant_price": 22
-        }
-      ]
-    },
-    "description": "風味：厚實的口感，具有濃厚的焦糖風味",
-    "roast": "中焙",
-    "aroma": 4,
-    "sour": 2,
-    "bitter": 4,
-    "thickness": 5
-  },
-  {
-    "name": "摩卡",
-    "child": {
-      "image": [
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/摩卡.png?fit=540%2C540&ssl=1"
-      ],
-      "variant": [
-        {
-          "variant_name": "30g",
-          "variant_price": 25
-        }
-      ]
-    },
-    "description": "風味：帶有恰到好處的苦味和酸味，也能喝到果酸味，味道深厚濃郁",
-    "roast": "中焙",
-    "aroma": 3,
-    "sour": 3,
-    "bitter": 3,
-    "thickness": 3
-  },
-  {
-    "name": "新幾內亞高山精選",
-    "child": {
-      "image": [
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/新幾內亞高山精選.png?fit=540%2C540&ssl=1"
-      ],
-      "variant": [
-        {
-          "variant_name": "30g",
-          "variant_price": 25
-        }
-      ]
-    },
-    "description": "風味：酸味感佳，散發熱帶水果的風味與甜味",
-    "roast": "中焙",
-    "aroma": 4,
-    "sour": 3,
-    "bitter": 4,
-    "thickness": 4
-  },
-  {
-    "name": "巴西小丸子",
-    "child": {
-      "image": [
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/巴西小丸子.png?fit=540%2C540&ssl=1"
-      ],
-      "variant": [
-        {
-          "variant_name": "30g",
-          "variant_price": 30
-        }
-      ]
-    },
-    "description": "風味：堅果巧克力的風味，豆形小巧可愛，喝起來的回甘度高",
-    "roast": "中淺焙",
-    "aroma": 5,
-    "sour": 4,
-    "bitter": 2,
-    "thickness": 3
-  },
-  {
-    "name": "印度馬拉巴季風豆",
-    "child": {
-      "image": [
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/印度馬拉巴季風豆.png?fit=540%2C540&ssl=1"
-      ],
-      "variant": [
-        {
-          "variant_name": "30g",
-          "variant_price": 30
-        }
-      ]
-    },
-    "description": "風味：透過特殊處裡的馬拉巴季風豆，帶有奶油麥子的香味，口感厚實",
-    "roast": "中深焙",
-    "aroma": 5,
-    "sour": 1,
-    "bitter": 2,
-    "thickness": 5
-  },
-  {
-    "name": "肯亞 AA",
-    "child": {
-      "image": [
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/肯亞AA.png?fit=540%2C540&ssl=1"
-      ],
-      "variant": [
-        {
-          "variant_name": "30g",
-          "variant_price": 30
-        }
-      ]
-    },
-    "description": "風味：可感受到高質感香氣，散發高雅甜味",
-    "roast": "中深焙",
-    "aroma": 4,
-    "sour": 5,
-    "bitter": 5,
-    "thickness": 4
-  },
-  {
-    "name": "特級藍山 小象 / 聖奧古斯丁",
-    "child": {
-      "image": [
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/特級藍山.png?fit=540%2C540&ssl=1"
-      ],
-      "variant": [
-        {
-          "variant_name": "30g",
-          "variant_price": 30
-        }
-      ]
-    },
-    "description": "風味：具有濃郁度及豐富層次感的酸味",
-    "roast": "中深焙",
-    "aroma": 3,
-    "sour": 4,
-    "bitter": 3,
-    "thickness": 4
-  },
-  {
-    "name": "巴西國寶 — 黃波旁",
-    "child": {
-      "image": [
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/巴西國寶黃波旁.png?fit=540%2C540&ssl=1"
-      ],
-      "variant": [
-        {
-          "variant_name": "30g",
-          "variant_price": 30
-        }
-      ]
-    },
-    "description": "風味：具有柑橘蜂蜜香，口感香甜清爽",
-    "roast": "中焙",
-    "aroma": 5,
-    "sour": 5,
-    "bitter": 2,
-    "thickness": 3
-  },
-  {
-    "name": "巴拿馬 — 波奎特百合花",
-    "child": {
-      "image": [
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/巴西國寶黃波旁.png?fit=540%2C540&ssl=1"
-      ],
-      "variant": [
-        {
-          "variant_name": "30g",
-          "variant_price": 30
-        }
-      ]
-    },
-    "description": "風味：舌頭清香，清爽萊姆味，容易入喉",
-    "roast": "淺焙",
-    "aroma": 5,
-    "sour": 4,
-    "bitter": 2,
-    "thickness": 4
-  },
-  {
-    "name": "瓜地馬拉 — 薇薇特南果",
-    "child": {
-      "image": [
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/薇薇特南果.png?fit=540%2C540&ssl=1"
-      ],
-      "variant": [
-        {
-          "variant_name": "30g",
-          "variant_price": 30
-        }
-      ]
-    },
-    "description": "風味：豐富的濃郁度，水果系酸味，宛如巧克力的芳香味道",
-    "roast": "中焙",
-    "aroma": 4,
-    "sour": 4,
-    "bitter": 4,
-    "thickness": 4
-  },
-  {
-    "name": "哥斯大黎加 — 塔拉珠樹蛙紅蜜",
-    "child": {
-      "image": [
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/樹蛙紅蜜.png?fit=540%2C540&ssl=1"
-      ],
-      "variant": [
-        {
-          "variant_name": "30g",
-          "variant_price": 30
-        }
-      ]
-    },
-    "description": "風味：具有豐富的酸味與果實慢慢熟成般的甜味",
-    "roast": "中焙",
-    "aroma": 3,
-    "sour": 4,
-    "bitter": 3,
-    "thickness": 3
-  },
-  {
     "name": "利姆季若",
     "child": {
       "image": [
@@ -252,6 +12,7 @@
         }
       ]
     },
+    "category_id": 1,
     "description": "風味：紅茶草本植物的花香",
     "roast": "中焙",
     "aroma": 5,
@@ -272,6 +33,7 @@
         }
       ]
     },
+    "category_id": 1,
     "description": "風味：檸檬皮、柑橘、柚子香氣",
     "roast": "淺焙",
     "aroma": 5,
@@ -292,6 +54,7 @@
         }
       ]
     },
+    "category_id": 1,
     "description": "風味：柚子、巧克力",
     "roast": "淺焙",
     "aroma": 4,
@@ -312,6 +75,7 @@
         }
       ]
     },
+    "category_id": 1,
     "description": "風味：新鮮鳳梨、芒果的香氣",
     "roast": "淺焙",
     "aroma": 3,
@@ -332,6 +96,7 @@
         }
       ]
     },
+    "category_id": 1,
     "description": "風味：紅茶、佛手柑、茉莉花香",
     "roast": "淺焙",
     "aroma": 5,
@@ -352,31 +117,12 @@
         }
       ]
     },
+    "category_id": 1,
     "description": "風味：花果香、巧克力堅果",
     "roast": "淺中焙",
     "aroma": 4,
     "sour": 2,
     "bitter": 2,
-    "thickness": 4
-  },
-  {
-    "name": "薩爾瓦多 — 帕卡瑪拉",
-    "child": {
-      "image": [
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/薩爾瓦多帕卡瑪拉.png?fit=540%2C540&ssl=1"
-      ],
-      "variant": [
-        {
-          "variant_name": "30g",
-          "variant_price": 40
-        }
-      ]
-    },
-    "description": "風味：雪松油桃味，尾韻為烤真果香",
-    "roast": "淺焙",
-    "aroma": 5,
-    "sour": 3,
-    "bitter": 4,
     "thickness": 4
   },
   {
@@ -392,6 +138,7 @@
         }
       ]
     },
+    "category_id": 2,
     "description": "風味：水蜜桃、蜂蜜、奶油",
     "roast": "淺焙",
     "aroma": 5,
@@ -412,11 +159,285 @@
         }
       ]
     },
+    "category_id": 2,
     "description": "風味：有蜂蜜的香甜，也有茶香的回甘",
     "roast": "淺焙",
     "aroma": 5,
     "sour": 5,
     "bitter": 2,
     "thickness": 2
+  },
+  {
+    "name": "曼特寧・巴西",
+    "child": {
+      "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/曼特寧巴西.png?fit=540%2C540&ssl=1"
+      ],
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 22
+        }
+      ]
+    },
+    "category_id": 3,
+    "description": "風味：成熟熱帶水果的香甜風味，剛好的苦味，奶油般的質感",
+    "roast": "中深焙",
+    "aroma": 5,
+    "sour": 2,
+    "bitter": 2,
+    "thickness": 3
+  },
+  {
+    "name": "巴紐・曼特寧",
+    "child": {
+      "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/07/巴紐.png?fit=1663%2C1080&ssl=1"
+      ],
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 22
+        }
+      ]
+    },
+    "category_id": 3,
+    "description": "風味：厚實的口感，具有濃厚的焦糖風味",
+    "roast": "中焙",
+    "aroma": 4,
+    "sour": 2,
+    "bitter": 4,
+    "thickness": 5
+  },
+  {
+    "name": "摩卡",
+    "child": {
+      "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/摩卡.png?fit=540%2C540&ssl=1"
+      ],
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 25
+        }
+      ]
+    },
+    "category_id": 3,
+    "description": "風味：帶有恰到好處的苦味和酸味，也能喝到果酸味，味道深厚濃郁",
+    "roast": "中焙",
+    "aroma": 3,
+    "sour": 3,
+    "bitter": 3,
+    "thickness": 3
+  },
+  {
+    "name": "新幾內亞高山精選",
+    "child": {
+      "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/新幾內亞高山精選.png?fit=540%2C540&ssl=1"
+      ],
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 25
+        }
+      ]
+    },
+    "category_id": 4,
+    "description": "風味：酸味感佳，散發熱帶水果的風味與甜味",
+    "roast": "中焙",
+    "aroma": 4,
+    "sour": 3,
+    "bitter": 4,
+    "thickness": 4
+  },
+  {
+    "name": "巴西小丸子",
+    "child": {
+      "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/巴西小丸子.png?fit=540%2C540&ssl=1"
+      ],
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 30
+        }
+      ]
+    },
+    "category_id": 4,
+    "description": "風味：堅果巧克力的風味，豆形小巧可愛，喝起來的回甘度高",
+    "roast": "中淺焙",
+    "aroma": 5,
+    "sour": 4,
+    "bitter": 2,
+    "thickness": 3
+  },
+  {
+    "name": "印度馬拉巴季風豆",
+    "child": {
+      "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/印度馬拉巴季風豆.png?fit=540%2C540&ssl=1"
+      ],
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 30
+        }
+      ]
+    },
+    "category_id": 4,
+    "description": "風味：透過特殊處裡的馬拉巴季風豆，帶有奶油麥子的香味，口感厚實",
+    "roast": "中深焙",
+    "aroma": 5,
+    "sour": 1,
+    "bitter": 2,
+    "thickness": 5
+  },
+  {
+    "name": "肯亞 AA",
+    "child": {
+      "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/肯亞AA.png?fit=540%2C540&ssl=1"
+      ],
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 30
+        }
+      ]
+    },
+    "category_id": 4,
+    "description": "風味：可感受到高質感香氣，散發高雅甜味",
+    "roast": "中深焙",
+    "aroma": 4,
+    "sour": 5,
+    "bitter": 5,
+    "thickness": 4
+  },
+  {
+    "name": "特級藍山 小象 / 聖奧古斯丁",
+    "child": {
+      "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/特級藍山.png?fit=540%2C540&ssl=1"
+      ],
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 30
+        }
+      ]
+    },
+    "category_id": 4,
+    "description": "風味：具有濃郁度及豐富層次感的酸味",
+    "roast": "中深焙",
+    "aroma": 3,
+    "sour": 4,
+    "bitter": 3,
+    "thickness": 4
+  },
+  {
+    "name": "巴西國寶 — 黃波旁",
+    "child": {
+      "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/巴西國寶黃波旁.png?fit=540%2C540&ssl=1"
+      ],
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 30
+        }
+      ]
+    },
+    "category_id": 4,
+    "description": "風味：具有柑橘蜂蜜香，口感香甜清爽",
+    "roast": "中焙",
+    "aroma": 5,
+    "sour": 5,
+    "bitter": 2,
+    "thickness": 3
+  },
+  {
+    "name": "巴拿馬 — 波奎特百合花",
+    "child": {
+      "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/巴西國寶黃波旁.png?fit=540%2C540&ssl=1"
+      ],
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 30
+        }
+      ]
+    },
+    "category_id": 4,
+    "description": "風味：舌頭清香，清爽萊姆味，容易入喉",
+    "roast": "淺焙",
+    "aroma": 5,
+    "sour": 4,
+    "bitter": 2,
+    "thickness": 4
+  },
+  {
+    "name": "瓜地馬拉 — 薇薇特南果",
+    "child": {
+      "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/薇薇特南果.png?fit=540%2C540&ssl=1"
+      ],
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 30
+        }
+      ]
+    },
+    "category_id": 4,
+    "description": "風味：豐富的濃郁度，水果系酸味，宛如巧克力的芳香味道",
+    "roast": "中焙",
+    "aroma": 4,
+    "sour": 4,
+    "bitter": 4,
+    "thickness": 4
+  },
+  {
+    "name": "哥斯大黎加 — 塔拉珠樹蛙紅蜜",
+    "child": {
+      "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/樹蛙紅蜜.png?fit=540%2C540&ssl=1"
+      ],
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 30
+        }
+      ]
+    },
+    "category_id": 4,
+    "description": "風味：具有豐富的酸味與果實慢慢熟成般的甜味",
+    "roast": "中焙",
+    "aroma": 3,
+    "sour": 4,
+    "bitter": 3,
+    "thickness": 3
+  },
+  {
+    "name": "薩爾瓦多 — 帕卡瑪拉",
+    "child": {
+      "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/薩爾瓦多帕卡瑪拉.png?fit=540%2C540&ssl=1"
+      ],
+      "variant": [
+        {
+          "variant_name": "30g",
+          "variant_price": 40
+        }
+      ]
+    },
+    "category_id": 4,
+    "description": "風味：雪松油桃味，尾韻為烤真果香",
+    "roast": "淺焙",
+    "aroma": 5,
+    "sour": 3,
+    "bitter": 4,
+    "thickness": 4
   }
 ]

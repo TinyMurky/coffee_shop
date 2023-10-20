@@ -3,9 +3,14 @@ const productServices = require('../services/product-services')
 const productController = {
   getAllProducts: async (req, res, next) => {
     try {
-      const { isCoffee, limit, page } = req
+      const { isUtensil } = req
 
-      const productDatas = await productServices.getAllProducts({ isCoffee, limit, page })
+      let productDatas
+      if (isUtensil) {
+        productDatas = await productServices.getAllProducts(isUtensil)
+      } else {
+        productDatas = await productServices.getAllProductsGroupByCategory()
+      }
 
       const response = {
         status: 'success',
@@ -23,10 +28,8 @@ const productController = {
       if (isNaN(productId)) {
         throw new customError.CustomError('提供的id不是數字', 'TypeError', 400) // 400 Bad Request
       }
-      let hideFlavor = req.query.hideFlavor
-      hideFlavor = hideFlavor === 'true' ? true : (hideFlavor === 'false' ? false : undefined)
 
-      const productData = await productServices.getProduct(productId, hideFlavor)
+      const productData = await productServices.getProduct(productId)
 
       const response = {
         status: 'success',
