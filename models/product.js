@@ -16,8 +16,18 @@ module.exports = (sequelize, DataTypes) => {
       Product.hasMany(models.CartItem, { foreignKey: 'productId' })
       Product.hasMany(models.OrderItem, { foreignKey: 'productId' })
       Product.hasMany(models.Comment, { foreignKey: 'productId' })
+      Product.hasMany(models.Sale, { foreignKey: 'productId' })
 
       Product.belongsTo(models.Category, { foreignKey: 'categoryId' })
+
+      // 多對多關係
+      Product.belongsToMany(models.Sale, // 多對多關係
+        {
+          through: models.ProductSale,
+          foreignKey: 'productId',
+          as: 'salesOfProduct'
+        }
+      )
     }
   }
   Product.init({

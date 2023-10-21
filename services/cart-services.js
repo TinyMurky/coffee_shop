@@ -1,5 +1,6 @@
 const { NotFoundError } = require('../libs/error/custom-error')
-const { CartItem, Cart, Product, Variant } = require('../models')
+const { CartItem, Cart, Product, Variant, Sale } = require('../models')
+const { getDiscountePrice } = require('../helpers/cart-helpers')
 const cartServices = {
   // getCartItems: async (req, cb) => {
   //   try {
@@ -108,6 +109,36 @@ const cartServices = {
     } catch (err) {
       cb(err)
     }
+  },
+  getCartItem: async (id) => {
+    const cartItem = await CartItem.findByPk(id, {
+      require: true,
+      include: [
+        {
+          model: Product,
+          require: true,
+          include: {
+            model: Sale,
+            require: true,
+            as: 'salesOfProduct'
+          }
+        },
+        {
+          model: Variant,
+          require: true
+        }
+      ]
+    })
+
+    const discountedPrice = getDiscountePrice(cartItem)
+    const { Product: product, Variant: variant, ...rest } = cartItem.toJSON()
+    const response = {
+      ...rest,
+      productName: product.name,
+      variantName: variant.variantName,
+      discountedPrice
+    }
+    return response
   }
 
 }
