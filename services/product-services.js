@@ -1,5 +1,5 @@
 const { Product, Category, Variant, Image } = require('../models')
-const { getAllProducts, getActiveEvent } = require('./event-services')
+const { getActiveEvent } = require('./event-services')
 const customError = require('../libs/error/custom-error')
 const productHelpers = require('../helpers/product-helpers')
 
