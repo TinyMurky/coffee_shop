@@ -1,6 +1,6 @@
 const { NotFoundError } = require('../libs/error/custom-error')
 const { CartItem, Cart, Product, Variant, Sale } = require('../models')
-const { getDiscountePrice } = require('../helpers/cart-helpers')
+const { getCartDiscountePrice } = require('../helpers/discount-helpers')
 const cartServices = {
   getCartItems: async (req, cb) => {
     try {
@@ -33,8 +33,8 @@ const cartServices = {
       if (!cart) throw new NotFoundError('該使用者目前沒有購物車')
       if (!cart.CartItems || cart.CartItems.length === 0) { throw new NotFoundError('目前沒有任何商品在購物車！') }
 
-      const cartItems = cart.CartItems.map(item => {
-        const discountedPrice = getDiscountePrice(item)
+      const cartItems = await Promise.all(cart.CartItems.map(async (item) => {
+        const discountedPrice = await getCartDiscountePrice(item)
         return {
           productId: item.productId,
           productName: item.Product.name,
@@ -45,7 +45,7 @@ const cartServices = {
           createdTime: item.createdAt,
           discountedPrice
         }
-      })
+      }))
 
       console.log(cart)
       console.log(cartItems)
@@ -161,7 +161,7 @@ const cartServices = {
       ]
     })
 
-    const discountedPrice = getDiscountePrice(cartItem)
+    const discountedPrice = await getCartDiscountePrice(cartItem)
     const { Product: product, Variant: variant, ...rest } = cartItem.toJSON()
     const response = {
       ...rest,
