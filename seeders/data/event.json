@@ -1,0 +1,65 @@
+[
+  {
+    "id": "1",
+    "name": "Mother’s Day Sales",
+    "banner_url": "https://i.imgur.com/6iJxB1f.png",
+    "discount": 0.5,
+    "start_time": "2023-5-14",
+    "end_time": "2023-5-14",
+    "repeat": false
+  },
+  {
+    "id": "2",
+    "name": "Father’s Day Sales",
+    "banner_url": "https://i.imgur.com/oQ64Qqd.png",
+    "discount": 0.5,
+    "start_time": "2023-8-8",
+    "end_time": "2023-8-8",
+    "repeat": true
+  },
+  {
+    "id": "3",
+    "name": "Valentine’s Day Sales",
+    "banner_url": "https://i.imgur.com/4Nr2PZ5.png",
+    "discount": 0.5,
+    "start_time": "2023-2-14",
+    "end_time": "2023-2-14",
+    "repeat": true
+  },
+  {
+    "id": "4",
+    "name": "International Coffee Day Sales",
+    "banner_url": "https://i.imgur.com/6FecnXk.png",
+    "discount": 0.5,
+    "start_time": "2023-10-1",
+    "end_time": "2023-10-1",
+    "repeat": true
+  },
+  {
+    "id": "5",
+    "name": "December Special Sales",
+    "banner_url": "https://i.imgur.com/9Cvf17R.png",
+    "discount": 0.5,
+    "start_time": "2023-12-1",
+    "end_time": "2023-12-31",
+    "repeat": true
+  },
+  {
+    "id": "6",
+    "name": "Test October Special Sales",
+    "banner_url": "https://i.imgur.com/9Cvf17R.png",
+    "discount": 0.5,
+    "start_time": "2023-10-1",
+    "end_time": "2023-10-30",
+    "repeat": true
+  },
+  {
+    "id": "7",
+    "name": "Test not repeat October Special Sales",
+    "banner_url": "https://i.imgur.com/9Cvf17R.png",
+    "discount": 0.5,
+    "start_time": "2023-10-1",
+    "end_time": "2023-10-30",
+    "repeat": false
+  }
+]
