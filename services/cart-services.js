@@ -54,7 +54,7 @@ const cartServices = {
       cb(err)
     }
   },
-  addCartItem: async (req, cb) => {
+  modifyCartItem: async (req, cb) => {
     try {
       const userId = req.user.id
       const productId = req.params.id
@@ -62,18 +62,57 @@ const cartServices = {
       const cart = await Cart.findOrCreate({ where: { userId } })
       const variant = await Variant.findOne({ where: { variantName, productId } })
 
-      if (!quantity || !variantName) throw new NotFoundError('商品的數量和規格未提供')
-      if (!variant) throw new NotFoundError('此商品不存在')
+      if (!quantity || !variantName) {
+        throw new NotFoundError('商品的數量和規格未提供')
+      }
 
-      // console.log(quantity, productId, cart[0].id, variant.id)
-      const cartItem = await CartItem.create({ cartId: cart[0].id, productId, variantId: variant.id, quantity })
+      if (!variant) {
+        throw new NotFoundError('此商品不存在')
+      }
 
-      console.log(cartItem)
-      cb(null, cartItem)
+      // 尝试查找具有相同 productId 和 variantId 的 cartItem
+      const existingCartItem = await CartItem.findOne({
+        where: {
+          cartId: cart[0].id,
+          productId,
+          variantId: variant.id
+        }
+      })
+
+      if (existingCartItem) {
+        // 如果已经存在相同的 cartItem，更新它的 quantity
+        existingCartItem.quantity += quantity
+
+        await existingCartItem.save()
+
+        const response = {
+          message: `成功修改購物車的商品加${quantity}件, 現在總共有${existingCartItem.quantity}件`,
+          cartItemId: existingCartItem.id // 返回 cartItemId
+
+        }
+
+        cb(null, response)
+      } else {
+        // 如果不存在相同的 cartItem，创建一个新的 cartItem
+        const newCartItem = await CartItem.create({
+          cartId: cart[0].id,
+          productId,
+          variantId: variant.id,
+          quantity
+        })
+
+        const response = {
+          message: `成功將 ${quantity} 件商品添加到購物車`,
+          cartItemId: newCartItem.id // 返回 cartItemId
+        }
+
+        cb(null, response)
+      }
     } catch (err) {
       cb(err)
     }
   },
+
   removeCartItem: async (req, cb) => {
     try {
       const userId = req.user.id
@@ -97,7 +136,7 @@ const cartServices = {
       await cartItem.destroy()
 
       // 返回成功消息或其他响应
-      cb(null, { message: '已删除一筆購物車項目' })
+      cb(null, { message: `已删除購物車項目${cartItemId}` })
     } catch (err) {
       cb(err)
     }

@@ -17,6 +17,8 @@ const cartController = {
     // }
     cartServices.removeCartItem(req, (err, data) => err ? next(err) : res.status(200).json(data))
   },
+  modifyCartItem: (req, res, next) => {
+    cartServices.modifyCartItem(req, (err, data) => err ? next(err) : res.status(200).json(data))
   addCartItem: (req, res, next) => {
     cartServices.addCartItem(req, (err, data) => err ? next(err) : res.status(200).json(data))
   },
