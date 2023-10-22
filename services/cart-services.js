@@ -1,23 +1,40 @@
 const { NotFoundError } = require('../libs/error/custom-error')
-const { CartItem, Cart, Product, Variant } = require('../models')
+const { CartItem, Cart, Product, Variant, Sale } = require('../models')
+const { getCartDiscountePrice } = require('../helpers/discount-helpers')
 const cartServices = {
   getCartItems: async (req, cb) => {
     try {
       const userId = req.user.id
       const cart = await Cart.findOne({
         where: { userId },
+        require: true,
         include: [
           {
             model: CartItem,
-            include: [Product, Variant]
+            require: true,
+            include: [
+              {
+                model: Product,
+                require: true,
+                include: {
+                  model: Sale,
+                  require: true,
+                  as: 'salesOfProduct'
+                }
+              },
+              {
+                model: Variant,
+                require: true
+              }
+            ]
           }
         ]
       })
-
       if (!cart) throw new NotFoundError('該使用者目前沒有購物車')
       if (!cart.CartItems || cart.CartItems.length === 0) { throw new NotFoundError('目前沒有任何商品在購物車！') }
 
-      const cartItems = cart.CartItems.map(item => {
+      const cartItems = await Promise.all(cart.CartItems.map(async (item) => {
+        const discountedPrice = await getCartDiscountePrice(item)
         return {
           productId: item.productId,
           productName: item.Product.name,
@@ -25,9 +42,10 @@ const cartServices = {
           productVariant: item.Variant.variantName,
           productPrice: item.Variant.variantPrice,
           productQuantity: item.quantity,
-          createdTime: item.createdAt
+          createdTime: item.createdAt,
+          discountedPrice
         }
-      })
+      }))
 
       console.log(cart)
       console.log(cartItems)
@@ -122,6 +140,37 @@ const cartServices = {
     } catch (err) {
       cb(err)
     }
+  },
+  getCartItem: async (id) => {
+    const cartItem = await CartItem.findByPk(id, {
+      require: true,
+      include: [
+        {
+          model: Product,
+          require: true,
+          include: {
+            model: Sale,
+            require: true,
+            as: 'salesOfProduct'
+          }
+        },
+        {
+          model: Variant,
+          require: true
+        }
+      ]
+    })
+
+    const discountedPrice = await getCartDiscountePrice(cartItem)
+    const { Product: product, Variant: variant, ...rest } = cartItem.toJSON()
+    const response = {
+      ...rest,
+      productName: product.name,
+      variantName: variant.variantName,
+      variantPrice: variant.variantPrice,
+      discountedPrice
+    }
+    return response
   }
 
 }

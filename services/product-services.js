@@ -1,4 +1,5 @@
 const { Product, Category, Variant, Image } = require('../models')
+const { getActiveEvent } = require('./event-services')
 const customError = require('../libs/error/custom-error')
 const productHelpers = require('../helpers/product-helpers')
 
@@ -75,6 +76,16 @@ const productServices = {
       throw new customError.NotFoundError('Product not found')
     }
 
+    const events = await getActiveEvent()
+
+    for (const variant of productData.Variants) {
+      let discountedPrice = variant.variantPrice
+      for (const event of events) {
+        discountedPrice *= event.discount
+      }
+      variant.dataValues.discountedPrice = Math.ceil(discountedPrice)
+    }
+    console.log(productData)
     return productData
   }
 }

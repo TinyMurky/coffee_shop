@@ -36,6 +36,8 @@ module.exports = {
         return image
       })
       await queryInterface.bulkInsert('Images', images)
+
+      // 建立
     }
   },
 

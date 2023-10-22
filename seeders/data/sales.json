@@ -1,0 +1,51 @@
+{
+  "coffee": [
+    {
+      "id": 1,
+      "name": "耶加雪夫系列 買三送一",
+      "discount": 0.75,
+      "threshold": 4,
+      "start_time": "2023-1-1T00:00:00",
+      "end_time": "2024-1-1T00:00:00",
+      "applyCategory": 1
+    },
+    {
+      "id": 2,
+      "name": "藝伎豆 限時促銷 8折",
+      "discount": 0.8,
+      "threshold": 0,
+      "start_time": "2023-1-1T00:00:00",
+      "end_time": "2024-1-1T00:00:00",
+      "applyCategory": 2
+    },
+    {
+      "id": 3,
+      "name": "超值精選豆，活動已結束",
+      "discount": 0.9,
+      "threshold": 0,
+      "start_time": "2023-1-1T00:00:00",
+      "end_time": "2023-1-2T00:00:00",
+      "applyCategory": 3
+    },
+    {
+      "id": 4,
+      "name": "嚴選精選豆，買一送一",
+      "discount": 0.5,
+      "threshold": 2,
+      "start_time": "2023-1-1T00:00:00",
+      "end_time": "2024-1-1T00:00:00",
+      "applyCategory": 4
+    }
+  ],
+  "utensil": [
+    {
+      "id": 5,
+      "name": "磨豆機，買二送一",
+      "discount": 0.666666667,
+      "threshold": 2,
+      "start_time": "2023-1-1T00:00:00",
+      "end_time": "2024-1-1T00:00:00",
+      "productNameInclude": "磨豆機"
+    }
+  ]
+}
