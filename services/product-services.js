@@ -31,10 +31,11 @@ const productServices = {
       throw new customError.NotFoundError('Products not found')
     }
 
+    const discountRatio = await productServices.computeDiscountRatio()
     for (const product of productDatas) {
       for (const variant of product.Variants) {
         const originPrice = variant.variantPrice
-        variant.dataValues.discountedPrice = await productServices.computeDiscountFromVarient(originPrice)
+        variant.dataValues.discountedPrice = Math.ceil(discountRatio * originPrice)
       }
     }
     return productDatas
@@ -70,11 +71,12 @@ const productServices = {
     }
 
     // 三層迴圈，not efficient
+    const discountRatio = await productServices.computeDiscountRatio()
     for (const category of productsByCategory) {
       for (const product of category.Products) {
         for (const variant of product.Variants) {
           const originPrice = variant.variantPrice
-          variant.dataValues.discountedPrice = await productServices.computeDiscountFromVarient(originPrice)
+          variant.dataValues.discountedPrice = Math.ceil(discountRatio * originPrice)
         }
       }
     }
@@ -101,18 +103,20 @@ const productServices = {
       throw new customError.NotFoundError('Product not found')
     }
 
+    const discountRatio = await productServices.computeDiscountRatio()
     for (const variant of productData.Variants) {
       const originPrice = variant.variantPrice
-      variant.dataValues.discountedPrice = await productServices.computeDiscountFromVarient(originPrice)
+      variant.dataValues.discountedPrice = Math.ceil(discountRatio * originPrice)
     }
     return productData
   },
-  computeDiscountFromVarient: async (originPrice) => {
+  computeDiscountRatio: async () => {
     const events = await getActiveEvent()
+    let discountRatio = 1
     for (const event of events) {
-      originPrice *= event.discount
+      discountRatio *= event.discount
     }
-    return Math.ceil(originPrice)
+    return discountRatio
   }
 }
 module.exports = productServices
