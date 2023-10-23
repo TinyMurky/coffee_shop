@@ -5,19 +5,21 @@
 const bcrypt = require('bcryptjs')
 
 const BCRYPT_SALT_ROUNDS = 10
-const USER_AMOUNT = 3
+const developerEmail = require('./data/user.json')
 
+const USER_AMOUNT = 3 + developerEmail.length
 module.exports = {
   async up (queryInterface, Sequelize) {
     const salt = bcrypt.genSaltSync(BCRYPT_SALT_ROUNDS)
 
     await queryInterface.bulkInsert('Users',
       Array.from({ length: USER_AMOUNT }, (_, index) => {
-        if (index === 0) {
+        if (index < developerEmail.length) {
           return {
-            name: 'root',
-            account: 'root',
-            email: 'root@example.com',
+            id: index + 1,
+            name: developerEmail[index].name,
+            account: developerEmail[index].name,
+            email: developerEmail[index].email,
             password: bcrypt.hashSync('12345678', salt),
             introduction: 'Hello, I am root',
             is_admin: true,
@@ -28,6 +30,7 @@ module.exports = {
           }
         } else {
           return {
+            id: index + 1,
             name: `user${index}`,
             account: `user${index}`,
             email: `user${index}@example.com`,
@@ -40,7 +43,11 @@ module.exports = {
             updated_at: new Date()
           }
         }
-      })
+      }),
+      {
+        upsertKeys: ['id'],
+        updateOnDuplicate: ['name', 'account', 'is_admin', 'email']
+      }
     )
   },
 
