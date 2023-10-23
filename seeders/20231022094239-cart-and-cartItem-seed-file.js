@@ -39,7 +39,7 @@ module.exports = {
 
     let id = 0
     for (let i = 1; i <= developers.length; i++) {
-      for (let j = 1; j <= 3; j++) {
+      for (let j = 0; j < 3; j++) {
         // coffee product會依照第一筆isCoffee=true的id抓三個，並用productId抓出第一筆的varientId
         id++
         let productId = firstCoffeeId + j
