@@ -18,6 +18,9 @@ module.exports = {
       variant_price: {
         type: Sequelize.INTEGER
       },
+      variant_description: {
+        type: Sequelize.STRING
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

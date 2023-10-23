@@ -21,10 +21,11 @@ const productServices = {
         {
           model: Variant,
           require: true,
-          attributes: ['id', 'variantName', 'variantPrice']
+          attributes: ['id', 'variantName', 'variantPrice', 'variantDescription']
         }
       ],
-      require: true
+      require: true,
+      order: [['id', 'ASC'], [Variant, 'variantPrice', 'ASC'], [Variant, 'id', 'ASC'], [Image, 'id', 'ASC']]
     })
 
     if (!productDatas) {
@@ -56,12 +57,12 @@ const productServices = {
             {
               model: Variant,
               require: true,
-              attributes: ['id', 'variantName', 'variantPrice']
+              attributes: ['id', 'variantName', 'variantPrice', 'variantDescription']
             }
           ]
         }
       ],
-      order: [[Product, 'id', 'ASC']],
+      order: [[Product, 'id', 'ASC'], [Product, Variant, 'variantPrice', 'ASC'], [Product, Variant, 'id', 'ASC'], [Product, Image, 'id', 'ASC']],
       attributes: ['id', 'category'],
       require: true
     })
@@ -94,9 +95,10 @@ const productServices = {
         {
           model: Variant,
           require: true,
-          attributes: ['id', 'variantName', 'variantPrice']
+          attributes: ['id', 'variantName', 'variantPrice', 'variantDescription']
         }
-      ]
+      ],
+      order: [[Variant, 'variantPrice', 'ASC'], [Variant, 'id', 'ASC'], [Image, 'id', 'ASC']]
     })
 
     if (!productData) {
