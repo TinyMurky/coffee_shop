@@ -17,6 +17,11 @@ const productServices = {
           model: Image,
           require: true,
           attributes: ['id', 'imgUrl']
+        },
+        {
+          model: Variant,
+          require: true,
+          attributes: ['id', 'variantName', 'variantPrice']
         }
       ],
       require: true
@@ -26,6 +31,12 @@ const productServices = {
       throw new customError.NotFoundError('Products not found')
     }
 
+    for (const product of productDatas) {
+      for (const variant of product.Variants) {
+        const originPrice = variant.variantPrice
+        variant.dataValues.discountedPrice = await productServices.computeDiscountFromVarient(originPrice)
+      }
+    }
     return productDatas
   },
   getAllProductsGroupByCategory: async () => {
@@ -40,6 +51,11 @@ const productServices = {
               model: Image,
               require: true,
               attributes: ['id', 'imgUrl']
+            },
+            {
+              model: Variant,
+              require: true,
+              attributes: ['id', 'variantName', 'variantPrice']
             }
           ]
         }
@@ -53,6 +69,15 @@ const productServices = {
       throw new customError.NotFoundError('Products not found')
     }
 
+    // 三層迴圈，not efficient
+    for (const category of productsByCategory) {
+      for (const product of category.Products) {
+        for (const variant of product.Variants) {
+          const originPrice = variant.variantPrice
+          variant.dataValues.discountedPrice = await productServices.computeDiscountFromVarient(originPrice)
+        }
+      }
+    }
     return productsByCategory
   },
   getProduct: async (id) => {
@@ -76,17 +101,18 @@ const productServices = {
       throw new customError.NotFoundError('Product not found')
     }
 
-    const events = await getActiveEvent()
-
     for (const variant of productData.Variants) {
-      let discountedPrice = variant.variantPrice
-      for (const event of events) {
-        discountedPrice *= event.discount
-      }
-      variant.dataValues.discountedPrice = Math.ceil(discountedPrice)
+      const originPrice = variant.variantPrice
+      variant.dataValues.discountedPrice = await productServices.computeDiscountFromVarient(originPrice)
     }
-    console.log(productData)
     return productData
+  },
+  computeDiscountFromVarient: async (originPrice) => {
+    const events = await getActiveEvent()
+    for (const event of events) {
+      originPrice *= event.discount
+    }
+    return Math.ceil(originPrice)
   }
 }
 module.exports = productServices
