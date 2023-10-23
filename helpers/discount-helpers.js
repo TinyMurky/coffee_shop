@@ -1,7 +1,7 @@
 const customError = require('../libs/error/custom-error')
 const { getActiveEvent } = require('../services/event-services')
 const discountHelper = {
-  getCartDiscountePrice: async (cartItem) => {
+  getCartDiscountPrice: async (cartItem) => {
     // 注意！ cartItem是Sequelize物件
     const quantity = cartItem.quantity
 

@@ -1,59 +1,92 @@
 const { NotFoundError } = require('../libs/error/custom-error')
 const { CartItem, Cart, Product, Variant, Sale } = require('../models')
-const { getCartDiscountePrice } = require('../helpers/discount-helpers')
+const { getCartDiscountPrice } = require('../helpers/discount-helpers')
+// const { getCartItemsFromLocalStorage } = require('../helpers/local-storage-helpers')
+
 const cartServices = {
   getCartItems: async (req, cb) => {
     try {
       const userId = req.user.id
+
+      // 从本地存储获取购物车项目，如果没有则为空陣列
+      const localCartItems = req.body.cartItems
+
+      // 获取用户的数据库购物车
       const cart = await Cart.findOne({
         where: { userId },
-        require: true,
         include: [
           {
             model: CartItem,
-            require: true,
             include: [
               {
                 model: Product,
-                require: true,
                 include: {
                   model: Sale,
-                  require: true,
                   as: 'salesOfProduct'
                 }
               },
               {
-                model: Variant,
-                require: true
+                model: Variant
               }
             ]
           }
         ]
       })
-      if (!cart) throw new NotFoundError('該使用者目前沒有購物車')
-      if (!cart.CartItems || cart.CartItems.length === 0) { throw new NotFoundError('目前沒有任何商品在購物車！') }
 
-      const cartItems = await Promise.all(cart.CartItems.map(async (item) => {
-        const discountedPrice = await getCartDiscountePrice(item)
-        return {
-          productId: item.productId,
-          productName: item.Product.name,
-          productDescription: item.Product.description,
-          productVariant: item.Variant.variantName,
-          productPrice: item.Variant.variantPrice,
-          productQuantity: item.quantity,
-          createdTime: item.createdAt,
-          discountedPrice
+      if (!cart) {
+        throw new NotFoundError('该用户目前没有购物车')
+      }
+
+      // 如果本地存储中有购物车项目，将它们与数据库购物车项目进行比较
+      if (localCartItems.length > 0) {
+        for (const localCartItem of localCartItems) {
+          // 查找数据库购物车项目是否具有相同的产品和变体
+          const existingCartItem = cart.CartItems.find(
+            (item) =>
+              item.productId === localCartItem.productId &&
+              item.Variant.variantName === localCartItem.productVariant
+          )
+
+          if (existingCartItem) {
+            // 如果找到匹配项，增加数量
+            existingCartItem.quantity += localCartItem.productQuantity
+            await existingCartItem.save()
+          } else {
+            // 如果没有匹配项，创建一个新的购物车项目
+            await CartItem.create({
+              cartId: cart.id,
+              productId: localCartItem.productId,
+              variantId: localCartItem.variantId,
+              quantity: localCartItem.productQuantity
+            })
+          }
         }
-      }))
+      }
 
-      console.log(cart)
-      console.log(cartItems)
+      // 获取购物车项目的信息
+      const cartItems = await Promise.all(
+        cart.CartItems.map(async (item) => {
+          const discountedPrice = await getCartDiscountPrice(item)
+          return {
+            productId: item.productId,
+            productName: item.Product.name,
+            productDescription: item.Product.description,
+            productVariant: item.Variant.variantName,
+            productPrice: item.Variant.variantPrice,
+            productQuantity: item.quantity,
+            createdTime: item.createdAt,
+            discountedPrice
+          }
+        })
+      )
+
+      // 返回购物车项目
       cb(null, cartItems)
     } catch (err) {
       cb(err)
     }
   },
+
   modifyCartItem: async (req, cb) => {
     try {
       const userId = req.user.id
@@ -161,7 +194,7 @@ const cartServices = {
       ]
     })
 
-    const discountedPrice = await getCartDiscountePrice(cartItem)
+    const discountedPrice = await getCartDiscountPrice(cartItem)
     const { Product: product, Variant: variant, ...rest } = cartItem.toJSON()
     const response = {
       ...rest,
