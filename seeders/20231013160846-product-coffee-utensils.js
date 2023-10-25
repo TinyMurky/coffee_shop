@@ -9,7 +9,6 @@ module.exports = {
       const { child, ...product } = productData
       product.view_count = 0
       product.stock = 0
-      product.category_id = null
       product.created_at = new Date()
       product.updated_at = new Date()
       product.is_coffee = false

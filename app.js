@@ -17,12 +17,8 @@ const app = express()
 const whitelist = [/^http:\/\/localhost(:\d+)?$/, /\.ngrok-free\.app$/]
 const corsOptions = {
   origin: function (origin, callback) {
-    let pastCors = false
-    for (const regex of whitelist) {
-      if (regex.test(origin)) {
-        pastCors = true
-      }
-    }
+    const pastCors = whitelist.some(regex => regex.test(origin))
+
     if (pastCors || !origin) { // !origin for postman
       callback(null, true)
     } else {

@@ -5,6 +5,7 @@ const productHelpers = require('../helpers/product-helpers')
 
 const productServices = {
   getAllProducts: async (isUtensil = true) => {
+    // 不按照category取資料
     const attributes = productHelpers.chooseProductsAttriubites(isUtensil)
 
     const productDatas = await Product.findAll({
@@ -41,12 +42,15 @@ const productServices = {
     }
     return productDatas
   },
-  getAllProductsGroupByCategory: async () => {
+  getAllProductsGroupByCategory: async (isUtensil = false) => {
     // 不加raw, nest才會正確顯示結構
     const productsByCategory = await Category.findAll({
       include: [
         {
           model: Product,
+          where: {
+            isCoffee: !isUtensil
+          },
           require: true,
           include: [
             {
@@ -62,7 +66,7 @@ const productServices = {
           ]
         }
       ],
-      order: [[Product, 'id', 'ASC'], [Product, Variant, 'variantPrice', 'ASC'], [Product, Variant, 'id', 'ASC'], [Product, Image, 'id', 'ASC']],
+      order: [['id', 'ASC'], [Product, 'id', 'ASC'], [Product, Variant, 'variantPrice', 'ASC'], [Product, Variant, 'id', 'ASC'], [Product, Image, 'id', 'ASC']],
       attributes: ['id', 'category'],
       require: true
     })
