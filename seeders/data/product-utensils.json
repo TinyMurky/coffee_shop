@@ -24,6 +24,7 @@
         }
       ]
     },
+    "category_id": 5,
     "description": "風味：成熟熱帶水果的香甜風味，剛好的苦味，奶油般的質感"
   },
   {
@@ -58,6 +59,7 @@
         }
       ]
     },
+    "category_id": 5,
     "description": "粉水分層透明提示，緊密貼合濾紙設計，凹凸紋理設計順暢水流。"
   },
   {
@@ -86,6 +88,7 @@
         }
       ]
     },
+    "category_id": 6,
     "description": "泡咖啡泡茶皆可用，兩層式開瓶設計，300細目過濾網防污染，內容量：600 ml"
   },
   {
@@ -113,6 +116,7 @@
         }
       ]
     },
+    "category_id": 7,
     "description": "細口壺水柱接近垂直90度，適合新手與一般使用者，原木防燙手把，高密度304不鏽鋼。"
   },
   {
@@ -141,12 +145,76 @@
         }
       ]
     },
+    "category_id": 7,
     "description": "細口壺水柱接近垂直90度，適合新手與一般使用者。人體工學手把，降低疲勞。高密度304不鏽鋼。"
   },
   {
-    "name": "TIMEMORE 泰摩 黑鏡basic 手沖咖啡電子秤 (黑色）",
+    "name": "TIMEMORE 泰摩 魚smart 電子溫控手沖壺 (600ml/800ml 細口/鶴嘴)",
     "child": {
       "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2997.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_3009.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_3010.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_3011.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_3012.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_3013.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2998.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2999.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_3001.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_3003.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_3004.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_3005.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_3005.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_3006.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_3007.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_3008.jpeg?fit=1000%2C1000&ssl=1"
+      ],
+      "variant": [
+        {
+          "variant_name": "800 ml 黑色細口",
+          "variant_price": 3380
+        },
+        {
+          "variant_name": "800 ml 白色細口",
+          "variant_price": 3580
+        },
+        {
+          "variant_name": "800 ml 黑色鶴嘴",
+          "variant_price": 3780
+        },
+        {
+          "variant_name": "800 ml 白色鶴嘴",
+          "variant_price": 3980
+        },
+        {
+          "variant_name": "600 ml 黑色細口",
+          "variant_price": 2980
+        },
+        {
+          "variant_name": "600 ml 白色細口",
+          "variant_price": 3180
+        }
+      ]
+    },
+    "category_id": 7,
+    "description": "細口、鶴嘴兩種選擇，英國知名STRIX溫控系統。細口壺：口徑小，水柱接近垂直90度，適合新手與一般使用者。鶴嘴壺：口徑較大，可依沖泡方式不同自由掌控水流，適合老手。※600 ml / 800 ml 底座尺寸不同，不可共用"
+  },
+  {
+    "name": "TIMEMORE 泰摩 黑鏡basic 手沖咖啡電子秤",
+    "child": {
+      "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2957.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2968.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2969.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2958.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2959.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2960.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2961.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2962.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2963.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2964.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2965.jpeg?fit=1000%2C1000&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2967.jpeg?fit=1000%2C1000&ssl=1",
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2957.jpeg?fit=1000%2C1000&ssl=1",
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2968.jpeg?fit=1000%2C1000&ssl=1",
         "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2969.jpeg?fit=1000%2C1000&ssl=1",
@@ -164,36 +232,42 @@
         {
           "variant_name": "黑色",
           "variant_price": 1380
-        }
-      ]
-    },
-    "description": "手沖咖啡、義式咖啡兩用，三種沖煮模式：常規、自動手沖、義式手沖，流速偵測，自動沖煮計時。精準度達0.1g，最大負重2 kg。"
-  },
-  {
-    "name": "TIMEMORE 泰摩 黑鏡basic 手沖咖啡電子秤 (白色）",
-    "child": {
-      "image": [
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2957.jpeg?fit=1000%2C1000&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2968.jpeg?fit=1000%2C1000&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2969.jpeg?fit=1000%2C1000&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2958.jpeg?fit=1000%2C1000&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2959.jpeg?fit=1000%2C1000&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2960.jpeg?fit=1000%2C1000&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2961.jpeg?fit=1000%2C1000&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2962.jpeg?fit=1000%2C1000&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2963.jpeg?fit=1000%2C1000&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2964.jpeg?fit=1000%2C1000&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2965.jpeg?fit=1000%2C1000&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2967.jpeg?fit=1000%2C1000&ssl=1"
-      ],
-      "variant": [
+        },
         {
           "variant_name": "白色",
           "variant_price": 1580
         }
       ]
     },
+    "category_id": 8,
     "description": "手沖咖啡、義式咖啡兩用，三種沖煮模式：常規、自動手沖、義式手沖，流速偵測，自動沖煮計時。精準度達0.1g，最大負重2 kg。"
+  },
+  {
+    "name": "TIMEMORE 泰摩 黑鏡nano 手沖咖啡電子秤",
+    "child": {
+      "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2995.jpeg?fit=800%2C800&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2984.jpeg?fit=800%2C800&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2985.jpeg?fit=800%2C800&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2986.jpeg?fit=800%2C800&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2987.jpeg?fit=800%2C800&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2988.jpeg?fit=800%2C800&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2989.jpeg?fit=800%2C800&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2990.jpeg?fit=800%2C800&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2991.jpeg?fit=800%2C800&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2992.jpeg?fit=800%2C800&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2993.jpeg?fit=800%2C800&ssl=1",
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2994.jpeg?fit=800%2C800&ssl=1"
+      ],
+      "variant": [
+        {
+          "variant_name": "黑色",
+          "variant_price": 2580
+        }
+      ]
+    },
+    "category_id": 8,
+    "description": "細口、鶴嘴兩種選擇\n英國知名STRIX溫控系統\n細口壺：口徑小，水柱接近垂直90度，適合新手與一般使用者\n鶴嘴壺：口徑較大，可依沖泡方式不同自由掌控水流，適合老手\n※600 ml / 800 ml 底座尺寸不同，不可共用"
   },
   {
     "name": "TIMEMORE 泰摩 栗子 C2 手搖磨豆機",
@@ -222,6 +296,7 @@
         }
       ]
     },
+    "category_id": 9,
     "description": "同價位最高CP值——經典栗子C2手搖磨豆機，CNC全鋁機身雙軸成設計，多檔為控制研磨粗細，升級版本金屬粉桶，磨豆倉容量：25 g。"
   },
   {
@@ -248,6 +323,7 @@
         }
       ]
     },
+    "category_id": 9,
     "description": "栗子C3手搖磨豆機，升級CNC六芒星雙層磨芯，多檔為控制研磨粗細，升級版本金屬粉桶，新色陽極曜石黑，磨豆倉容量：25 g。"
   },
   {
@@ -279,79 +355,8 @@
         }
       ]
     },
+    "category_id": 9,
     "description": "經典栗子C2加大磨豆倉，更適合家庭多人使用。CNC全鋁機身雙軸成設計，多檔為控制研磨粗細，升級版本金屬粉桶，磨豆倉容量：30-35 g。"
-  },
-  {
-    "name": "TIMEMORE 泰摩 黑鏡nano 手沖咖啡電子秤",
-    "child": {
-      "image": [
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2995.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2984.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2985.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2986.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2987.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2988.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2989.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2990.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2991.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2992.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2993.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2994.jpeg?fit=800%2C800&ssl=1"
-      ],
-      "variant": [
-        {
-          "variant_name": "黑色",
-          "variant_price": 2580
-        }
-      ]
-    },
-    "description": "細口、鶴嘴兩種選擇\n英國知名STRIX溫控系統\n細口壺：口徑小，水柱接近垂直90度，適合新手與一般使用者\n鶴嘴壺：口徑較大，可依沖泡方式不同自由掌控水流，適合老手\n※600 ml / 800 ml 底座尺寸不同，不可共用"
-  },
-  {
-    "name": "TIMEMORE 泰摩 魚smart 電子溫控手沖壺 (600ml/800ml 細口/鶴嘴)",
-    "child": {
-      "image": [
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2995.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2984.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2985.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2986.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2987.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2988.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2989.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2990.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2991.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2992.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2993.jpeg?fit=800%2C800&ssl=1",
-        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2994.jpeg?fit=800%2C800&ssl=1"
-      ],
-      "variant": [
-        {
-          "variant_name": "800 ml 黑色細口",
-          "variant_price": 3380
-        },
-        {
-          "variant_name": "800 ml 白色細口",
-          "variant_price": 3580
-        },
-        {
-          "variant_name": "800 ml 黑色鶴嘴",
-          "variant_price": 3780
-        },
-        {
-          "variant_name": "800 ml 白色鶴嘴",
-          "variant_price": 3980
-        },
-        {
-          "variant_name": "600 ml 黑色細口",
-          "variant_price": 2980
-        },
-        {
-          "variant_name": "600 ml 白色細口",
-          "variant_price": 3180
-        }
-      ]
-    },
-    "description": "最強CP值充電磨豆機，卡豆智能自動迴旋，鋒利度高精準磨芯，15檔研磨粗細控制，研磨完畢智能停止，過熱過載自動斷電。"
   },
   {
     "name": "TIMEMORE 泰摩 栗子go電動磨豆機",
@@ -377,6 +382,7 @@
         }
       ]
     },
+    "category_id": 9,
     "description": "最強CP值充電磨豆機，卡豆智能自動迴旋，鋒利度高精準磨芯，15檔研磨粗細控制，研磨完畢智能停止，過熱過載自動斷電。"
   }
 ]

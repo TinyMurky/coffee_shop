@@ -5,12 +5,7 @@ const productController = {
     try {
       const { isUtensil } = req
 
-      let productDatas
-      if (isUtensil) {
-        productDatas = await productServices.getAllProducts(isUtensil)
-      } else {
-        productDatas = await productServices.getAllProductsGroupByCategory()
-      }
+      const productDatas = await productServices.getAllProductsGroupByCategory(isUtensil)
 
       const response = {
         status: 'success',
