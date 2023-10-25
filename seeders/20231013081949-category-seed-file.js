@@ -3,6 +3,7 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     const categoryDatas = require('./data/category.json')
+    const superCategoryDatas = require('./data/superCategory.json')
     categoryDatas.forEach(categoryData => {
       categoryData.created_at = new Date()
       categoryData.updated_at = new Date()
@@ -12,11 +13,24 @@ module.exports = {
       categoryDatas,
       {
         upsertKeys: ['id'],
-        updateOnDuplicate: ['category']
+        updateOnDuplicate: ['category', 'super_category_id']
+      })
+
+    // super category
+    superCategoryDatas.forEach(superCategoryData => {
+      superCategoryData.created_at = new Date()
+      superCategoryData.updated_at = new Date()
+    })
+    await queryInterface.bulkInsert('SuperCategories',
+      superCategoryDatas,
+      {
+        upsertKeys: ['id'],
+        updateOnDuplicate: ['super_category_name']
       })
   },
 
   async down (queryInterface, Sequelize) {
     await queryInterface.bulkDelete('Categories', null, {})
+    await queryInterface.bulkDelete('SuperCategories', null, {})
   }
 }
