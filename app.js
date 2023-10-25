@@ -12,7 +12,26 @@ const routes = require('./routes')
 
 // app init
 const app = express()
-app.use(cors())
+
+// cors開放http://localhost:xxxx 和 xxxxx.ngrok-free.app
+const whitelist = [/^http:\/\/localhost(:\d+)?$/, /\.ngrok-free\.app$/]
+const corsOptions = {
+  origin: function (origin, callback) {
+    let pastCors = false
+    for (const regex of whitelist) {
+      if (regex.test(origin)) {
+        pastCors = true
+      }
+    }
+    if (pastCors || !origin) { // !origin for postman
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+app.use(cors(corsOptions))
 
 // Bodyparser設定
 app.use(express.urlencoded({ extended: true }))
@@ -27,7 +46,7 @@ app.use(express.static(path.join(__dirname, 'public'))) // for css and 前端js
 app.use('/upload', express.static(path.join(__dirname, 'upload')))
 
 // PORT
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 
 // other middleware
 app.use(methodOverride('_method'))
