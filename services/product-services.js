@@ -16,16 +16,16 @@ const productServices = {
       include: [
         {
           model: Image,
-          require: true,
+          required: true,
           attributes: ['id', 'imgUrl']
         },
         {
           model: Variant,
-          require: true,
+          required: true,
           attributes: ['id', 'variantName', 'variantPrice', 'variantDescription']
         }
       ],
-      require: true,
+      required: true,
       order: [['id', 'ASC'], [Variant, 'variantPrice', 'ASC'], [Variant, 'id', 'ASC'], [Image, 'id', 'ASC']]
     })
 
@@ -42,33 +42,30 @@ const productServices = {
     }
     return productDatas
   },
-  getAllProductsGroupByCategory: async (isUtensil = false) => {
+  getAllProductsGroupByCategory: async () => {
     // 不加raw, nest才會正確顯示結構
     const productsByCategory = await Category.findAll({
       include: [
         {
           model: Product,
-          where: {
-            isCoffee: !isUtensil
-          },
-          require: true,
+          required: true,
           include: [
             {
               model: Image,
-              require: true,
+              required: true,
               attributes: ['id', 'imgUrl']
             },
             {
               model: Variant,
-              require: true,
+              required: true,
               attributes: ['id', 'variantName', 'variantPrice', 'variantDescription']
             }
           ]
         }
       ],
       order: [['id', 'ASC'], [Product, 'id', 'ASC'], [Product, Variant, 'variantPrice', 'ASC'], [Product, Variant, 'id', 'ASC'], [Product, Image, 'id', 'ASC']],
-      attributes: ['id', 'category'],
-      require: true
+      attributes: ['id', ['category', 'subCategoryName'], 'isCoffee'],
+      required: true
     })
 
     if (!productsByCategory) {
@@ -85,20 +82,40 @@ const productServices = {
         }
       }
     }
-    return productsByCategory
+
+    const coffees = productsByCategory.filter(category => category.isCoffee)
+    const utensil = productsByCategory.filter(category => !category.isCoffee)
+    const response = [
+      {
+        id: 1,
+        mainCategory: '咖啡豆, 濾掛式',
+        subCategory: coffees
+      },
+      {
+        id: 2,
+        mainCategory: '咖啡器材',
+        subCategory: utensil
+      }
+    ]
+    return response
   },
   getProduct: async (id) => {
     const productData = await Product.findByPk(id, {
-      require: true,
+      required: true,
       include: [
         {
+          model: Category,
+          required: true,
+          attributes: ['category']
+        },
+        {
           model: Image,
-          require: true,
+          required: true,
           attributes: ['id', 'imgUrl']
         },
         {
           model: Variant,
-          require: true,
+          required: true,
           attributes: ['id', 'variantName', 'variantPrice', 'variantDescription']
         }
       ],

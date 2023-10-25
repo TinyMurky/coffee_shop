@@ -12,6 +12,9 @@ module.exports = {
       category: {
         type: Sequelize.STRING
       },
+      is_coffee: {
+        type: Sequelize.BOOLEAN
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

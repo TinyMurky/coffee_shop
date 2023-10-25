@@ -1,38 +1,47 @@
 [
   {
     "id": 1,
-    "category": "耶加雪夫系列"
+    "category": "耶加雪夫系列",
+    "is_coffee": true
   },
   {
     "id": 2,
-    "category": "藝伎豆"
+    "category": "藝伎豆",
+    "is_coffee": true
   },
   {
     "id": 3,
-    "category": "超值精選豆"
+    "category": "超值精選豆",
+    "is_coffee": true
   },
   {
     "id": 4,
-    "category": "嚴選精品豆"
+    "category": "嚴選精品豆",
+    "is_coffee": true
   },
   {
     "id": 5,
-    "category": "咖啡濾杯"
+    "category": "咖啡濾杯",
+    "is_coffee": false
   },
   {
     "id": 6,
-    "category": "冷萃壺、冰釀壺"
+    "category": "冷萃壺、冰釀壺",
+    "is_coffee": false
   },
   {
     "id": 7,
-    "category": "手沖壺"
+    "category": "手沖壺",
+    "is_coffee": false
   },
   {
     "id": 8,
-    "category": "咖啡電子秤"
+    "category": "咖啡電子秤",
+    "is_coffee": false
   },
   {
     "id": 9,
-    "category": "磨豆機"
+    "category": "磨豆機",
+    "is_coffee": false
   }
 ]

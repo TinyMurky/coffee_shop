@@ -176,7 +176,7 @@ const cartServices = {
   },
   getCartItem: async (id) => {
     const cartItem = await CartItem.findByPk(id, {
-      require: true,
+      required: true,
       include: [
         {
           model: Product,

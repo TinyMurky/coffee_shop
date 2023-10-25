@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Category.init({
-    category: DataTypes.STRING
+    category: DataTypes.STRING,
+    isCoffee: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Category',
