@@ -25,7 +25,7 @@
       ]
     },
     "category_id": 5,
-    "description": "風味：成熟熱帶水果的香甜風味，剛好的苦味，奶油般的質感"
+    "description": "粉水分層透明提示，緊密貼合濾紙設計，凹凸紋理設計順暢水流。"
   },
   {
     "name": "TIMEMORE 泰摩 冰瞳玻璃咖啡V型濾杯",
@@ -198,6 +198,22 @@
     },
     "category_id": 7,
     "description": "細口、鶴嘴兩種選擇，英國知名STRIX溫控系統。細口壺：口徑小，水柱接近垂直90度，適合新手與一般使用者。鶴嘴壺：口徑較大，可依沖泡方式不同自由掌控水流，適合老手。※600 ml / 800 ml 底座尺寸不同，不可共用"
+  },
+  {
+    "name": "漫・拾光手沖壺",
+    "child": {
+      "image": [
+        "https://i0.wp.com/018-studio.com/wp-content/uploads/2022/06/IMG_2853.png?fit=731%2C640&ssl=1"
+      ],
+      "variant": [
+        {
+          "variant_name": "250ml",
+          "variant_price": 599
+        }
+      ]
+    },
+    "category_id": 7,
+    "description": "「慢」遊在温度與香氣間\n啜「提」一天的疲恩忙碌\n感受細微的「光」影變化,\n\n溫柔喚醒喉嚨齒類間,安靜的喧囂。\n拋開善感自在的沉醉,啜飲片刻熱烈。\n平凡或特別、清淡或濃烈·「開支闊葉」或「溶解淬煉」。\n细细品味掏選——温淳的慢活美學"
   },
   {
     "name": "TIMEMORE 泰摩 黑鏡basic 手沖咖啡電子秤",
