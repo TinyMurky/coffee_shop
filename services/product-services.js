@@ -1,4 +1,4 @@
-const { Product, Category, Variant, Image } = require('../models')
+const { Product, Category, SuperCategory, Variant, Image, Sequelize } = require('../models')
 const { getActiveEvent } = require('./event-services')
 const customError = require('../libs/error/custom-error')
 const productHelpers = require('../helpers/product-helpers')
@@ -16,16 +16,16 @@ const productServices = {
       include: [
         {
           model: Image,
-          require: true,
+          required: true,
           attributes: ['id', 'imgUrl']
         },
         {
           model: Variant,
-          require: true,
+          required: true,
           attributes: ['id', 'variantName', 'variantPrice', 'variantDescription']
         }
       ],
-      require: true,
+      required: true,
       order: [['id', 'ASC'], [Variant, 'variantPrice', 'ASC'], [Variant, 'id', 'ASC'], [Image, 'id', 'ASC']]
     })
 
@@ -42,63 +42,76 @@ const productServices = {
     }
     return productDatas
   },
-  getAllProductsGroupByCategory: async (isUtensil = false) => {
+  getAllProductsGroupByCategory: async () => {
     // 不加raw, nest才會正確顯示結構
-    const productsByCategory = await Category.findAll({
-      include: [
-        {
-          model: Product,
-          where: {
-            isCoffee: !isUtensil
-          },
-          require: true,
-          include: [
-            {
-              model: Image,
-              require: true,
-              attributes: ['id', 'imgUrl']
-            },
-            {
-              model: Variant,
-              require: true,
-              attributes: ['id', 'variantName', 'variantPrice', 'variantDescription']
-            }
-          ]
-        }
+    const discountRatio = await productServices.computeDiscountRatio()
+    const productsByCategory = await SuperCategory.findAll({
+      order: [
+        ['id', 'ASC'],
+        [Category, 'id', 'ASC'],
+        [Category, Product, 'id', 'ASC'],
+        [Category, Product, Variant, 'variantPrice', 'ASC'],
+        [Category, Product, Variant, 'id', 'ASC'],
+        [Category, Product, Image, 'id', 'ASC']
       ],
-      order: [['id', 'ASC'], [Product, 'id', 'ASC'], [Product, Variant, 'variantPrice', 'ASC'], [Product, Variant, 'id', 'ASC'], [Product, Image, 'id', 'ASC']],
-      attributes: ['id', 'category'],
-      require: true
+      required: true,
+      attributes: ['id', 'superCategoryName'],
+      include: [{
+        model: Category,
+        required: true,
+        attributes: ['id', ['category', 'subCategory']],
+        include: [
+          {
+            model: Product,
+            required: true,
+            include: [
+              {
+                model: Image,
+                required: true,
+                attributes: ['id', 'imgUrl']
+              },
+              {
+                model: Variant,
+                required: true,
+                attributes: {
+                  include: [
+                    'id',
+                    'variantName',
+                    'variantPrice',
+                    'variantDescription',
+                    [Sequelize.literal(`CEILING (variant_price * ${discountRatio})`), 'discountedPrice']
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }]
     })
 
     if (!productsByCategory) {
       throw new customError.NotFoundError('Products not found')
     }
 
-    // 三層迴圈，not efficient
-    const discountRatio = await productServices.computeDiscountRatio()
-    for (const category of productsByCategory) {
-      for (const product of category.Products) {
-        for (const variant of product.Variants) {
-          const originPrice = variant.variantPrice
-          variant.dataValues.discountedPrice = Math.ceil(discountRatio * originPrice)
-        }
-      }
-    }
     return productsByCategory
   },
   getProduct: async (id) => {
     const productData = await Product.findByPk(id, {
-      require: true,
+      required: true,
       include: [
         {
+          model: Category,
+          required: true,
+          attributes: ['category']
+        },
+        {
           model: Image,
-          require: true,
+          required: true,
           attributes: ['id', 'imgUrl']
         },
         {
           model: Variant,
-          require: true,
+          required: true,
           attributes: ['id', 'variantName', 'variantPrice', 'variantDescription']
         }
       ],

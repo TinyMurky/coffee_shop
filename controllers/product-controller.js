@@ -3,9 +3,7 @@ const productServices = require('../services/product-services')
 const productController = {
   getAllProducts: async (req, res, next) => {
     try {
-      const { isUtensil } = req
-
-      const productDatas = await productServices.getAllProductsGroupByCategory(isUtensil)
+      const productDatas = await productServices.getAllProductsGroupByCategory()
 
       const response = {
         status: 'success',
