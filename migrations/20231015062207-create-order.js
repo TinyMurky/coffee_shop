@@ -9,14 +9,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      user_id: {
-        type: Sequelize.INTEGER
-      },
-      payment_method_id: {
-        type: Sequelize.INTEGER
+      email: {
+        type: Sequelize.STRING
       },
       total_price: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: true
+      },
+      status: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        defaultValue: '待付款'
       },
       created_at: {
         allowNull: false,

@@ -15,9 +15,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'userId'
       })
 
-      User.hasMany(models.Order, {
-        foreignKey: 'userId'
-      })
+      // User.hasMany(models.Order, {
+      //   foreignKey: 'userId'
+      // })
       User.hasMany(models.Comment, {
         foreignKey: 'userId'
       })
