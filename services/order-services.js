@@ -1,5 +1,6 @@
 const { Product, Variant, Sale, Order, OrderItem } = require('../models')
 const { getCartDiscountPrice } = require('../helpers/discount-helpers')
+const activatedHelpers = require('../helpers/event-sale-activated-helper')
 
 const orderServices = {
   createOrder: async (email, orderItems) => {
@@ -58,6 +59,7 @@ const orderServices = {
     await order.destroy()
   },
   getAllOrders: async (email) => {
+    const today = new Date()
     const orders = await Order.findAll({
       where: { email },
       include: [
@@ -67,8 +69,17 @@ const orderServices = {
             {
               model: Product,
               include: {
+
                 model: Sale,
-                as: 'salesOfProduct'
+                required: false, // 沒有sale的也要找出來所以不可以true
+                as: 'salesOfProduct',
+                attributes: ['id', 'name', 'discount', 'threshold', 'startTime', 'endTime'],
+                where: {
+                  ...activatedHelpers.getFullYearCondition(today)
+                },
+                through: {
+                  attributes: []
+                }
               }
             },
             {
@@ -93,6 +104,7 @@ const orderServices = {
             productPrice: item.Variant.variantPrice,
             productQuantity: item.quantity,
             createdTime: item.createdAt,
+            salesOfProduct: item.Product.salesOfProduct,
             discountedPrice
           }
         }))
