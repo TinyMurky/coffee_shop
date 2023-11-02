@@ -49,10 +49,11 @@ const orderServices = {
   },
   removeOrder: async (orderId) => {
     const order = await Order.findByPk(orderId)
-    const orderItems = await OrderItem.findAll({ orderId: order.id })
-    await Promise.all(orderItems.map(async (orderItem) => {
+    const orderItems = await OrderItem.findAll({ where: { orderId: order.id } })
+    console.log(orderItems)
+    for (const orderItem of orderItems) {
       await orderItem.destroy()
-    }))
+    }
     await order.destroy()
   },
   getAllOrders: async (email) => {
