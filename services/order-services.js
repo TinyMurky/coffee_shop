@@ -45,6 +45,7 @@ const orderServices = {
         }
       })
     )
+
     return response
   },
   removeOrder: async (orderId) => {

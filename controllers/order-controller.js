@@ -1,13 +1,16 @@
 const orderServices = require('../services/order-services')
 const customError = require('../libs/error/custom-error')
 const validator = require('email-validator')
+const emailService = require('../services/email.services')
 
 const orderController = {
   createOrder: async (req, res, next) => {
     try {
       const { email, orders } = req.body
       // 先驗證輸入格式為email
+
       if (validator.validate(email)) {
+        await emailService.sendOrderedEmail(email, 'www.google.com')
         return res.status(200).json({
           status: 'success',
           data: await orderServices.createOrder(email, orders)
@@ -40,7 +43,7 @@ const orderController = {
       const orderId = req.params.id
       await orderServices.removeOrder(orderId)
       return res.status(200).json({
-        status: ' success',
+        status: 'success',
         message: 'successfully deleted order'
       })
     } catch (error) {
