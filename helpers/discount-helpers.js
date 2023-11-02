@@ -7,7 +7,7 @@ const discountHelper = {
 
     let originPrice = cartItem?.Variant?.variantPrice
     if (!originPrice) {
-      throw new customError.CustomError('CartItem need variant price', 'TypeError', 400)
+      throw new customError.CustomError('OrderItem unknown variant', 'TypeError', 400)
     }
 
     const discountObjects = cartItem?.Product?.salesOfProduct

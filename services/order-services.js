@@ -76,32 +76,29 @@ const orderServices = {
         }
       ]
     })
-    const response = await Promise.all(
-      orders.map(async (order) => {
-        console.log('order', order)
-        const orderItemsData = await Promise.all(
-          order.OrderItems.map(async (item) => {
-            console.log('item', item)
-            const discountedPrice = await getCartDiscountPrice(item)
-            return {
-              productId: item.productId,
-              productName: item.Product.name,
-              productDescription: item.Product.description,
-              productVariant: item.Variant.variantName,
-              productPrice: item.Variant.variantPrice,
-              productQuantity: item.quantity,
-              createdTime: item.createdAt,
-              discountedPrice
-            }
-          })
-        )
-        console.log('orderItemsData', orderItemsData)
-        return orderItemsData
-      })
-    )
-    // 由于上述代码会返回嵌套数组，使用 flat() 扁平化数组
-    console.log('response', response)
-    return response.flat()
+    console.log('orders', orders)
+    // 使用 Promise.all 处理订单和订单项的异步操作
+    const response = await Promise.all(orders.map(async (order) => {
+      const orderObject = {
+        orderId: order.id,
+        orderItem: await Promise.all(order.OrderItems.map(async (item) => {
+          const discountedPrice = await getCartDiscountPrice(item)
+          return {
+            productId: item.productId,
+            productName: item.Product.name,
+            productDescription: item.Product.description,
+            productVariant: item.Variant.variantName,
+            productPrice: item.Variant.variantPrice,
+            productQuantity: item.quantity,
+            createdTime: item.createdAt,
+            discountedPrice
+          }
+        }))
+      }
+      return orderObject
+    }))
+
+    return response
   }
 
 }
