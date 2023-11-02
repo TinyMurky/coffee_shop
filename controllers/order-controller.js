@@ -40,7 +40,7 @@ const orderController = {
       const orderId = req.params.id
       await orderServices.removeOrder(orderId)
       return res.status(200).json({
-        status: ' success',
+        status: 'success',
         message: 'successfully deleted order'
       })
     } catch (error) {
