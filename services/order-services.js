@@ -1,10 +1,15 @@
 const { Product, Variant, Sale, Order, OrderItem } = require('../models')
+const cryptoHelper = require('../helpers/crypo-helper')
 const { getCartDiscountPrice } = require('../helpers/discount-helpers')
 const activatedHelpers = require('../helpers/event-sale-activated-helper')
-
+const customError = require('../libs/error/custom-error')
 const orderServices = {
   createOrder: async (email, orderItems) => {
-    const order = await Order.create({ email })
+    if (!email) {
+      throw new customError.CustomError('Email is required!', 'TypeError', 400)
+    }
+    const encryptEmail = cryptoHelper.encrypt(email)
+    const order = await Order.create({ email: encryptEmail })
 
     for (const orderItem of orderItems) {
       await OrderItem.create({
@@ -52,7 +57,6 @@ const orderServices = {
   removeOrder: async (orderId) => {
     const order = await Order.findByPk(orderId)
     const orderItems = await OrderItem.findAll({ where: { orderId: order.id } })
-    console.log(orderItems)
     for (const orderItem of orderItems) {
       await orderItem.destroy()
     }
@@ -60,8 +64,9 @@ const orderServices = {
   },
   getAllOrders: async (email) => {
     const today = new Date()
+    const encryptEmail = cryptoHelper.encrypt(email)
     const orders = await Order.findAll({
-      where: { email },
+      where: { email: encryptEmail },
       include: [
         {
           model: OrderItem,
@@ -89,7 +94,6 @@ const orderServices = {
         }
       ]
     })
-    console.log('orders', orders)
     // 使用 Promise.all 处理订单和订单项的异步操作
     const response = await Promise.all(orders.map(async (order) => {
       const orderObject = {

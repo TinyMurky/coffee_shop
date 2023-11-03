@@ -140,7 +140,9 @@ const productServices = {
     for (const variant of productData.Variants) {
       const originPrice = variant.variantPrice
       variant.dataValues.discountedPrice = Math.ceil(discountRatio * originPrice)
+      variant.dataValues.salesOfProduct = productData.dataValues.salesOfProduct
     }
+    delete productData.dataValues.salesOfProduct
     return productData
   },
   computeDiscountRatio: async () => {
