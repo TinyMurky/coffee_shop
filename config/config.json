@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "root",
+    "username": "tinymurky",
     "password": "password",
     "database": "coffee_shop_development",
     "host": "127.0.0.1",

@@ -1,10 +1,18 @@
 const { Product, Variant, Sale, Order, OrderItem } = require('../models')
+const cryptoHelper = require('../helpers/crypo-helper')
 const { getCartDiscountPrice } = require('../helpers/discount-helpers')
-
+const activatedHelpers = require('../helpers/event-sale-activated-helper')
+const customError = require('../libs/error/custom-error')
 const orderServices = {
+
   createOrder: async (email, orderItems, shippingPrice) => {
-    // 创建订单
-    const order = await Order.create({ email })
+    if (!email) {
+      throw new customError.CustomError('Email is required!', 'TypeError', 400)
+    }
+
+    const encryptEmail = cryptoHelper.encrypt(email)
+    const order = await Order.create({ email: encryptEmail })
+
 
     // 创建订单项
     await OrderItem.bulkCreate(orderItems.map((orderItem) => ({
@@ -67,16 +75,16 @@ const orderServices = {
   removeOrder: async (orderId) => {
     const order = await Order.findByPk(orderId)
     const orderItems = await OrderItem.findAll({ where: { orderId: order.id } })
-    console.log(orderItems)
     for (const orderItem of orderItems) {
       await orderItem.destroy()
     }
     await order.destroy()
   },
   getAllOrders: async (email) => {
-    // 获取与用户关联的订单
+    const today = new Date()
+    const encryptEmail = cryptoHelper.encrypt(email)
     const orders = await Order.findAll({
-      where: { email },
+      where: { email: encryptEmail },
       include: [
         {
           model: OrderItem,
@@ -84,8 +92,17 @@ const orderServices = {
             {
               model: Product,
               include: {
+
                 model: Sale,
-                as: 'salesOfProduct'
+                required: false, // 沒有sale的也要找出來所以不可以true
+                as: 'salesOfProduct',
+                attributes: ['id', 'name', 'discount', 'threshold', 'startTime', 'endTime'],
+                where: {
+                  ...activatedHelpers.getFullYearCondition(today)
+                },
+                through: {
+                  attributes: []
+                }
               }
             },
             {
@@ -113,7 +130,8 @@ const orderServices = {
             productQuantity: item.quantity,
             createdTime: item.createdAt,
             discountedPrice,
-            subTotal
+            subTotal,
+            salesOfProduct: item.Product.salesOfProduct
           }
         }))
 

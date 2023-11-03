@@ -14,7 +14,7 @@ const routes = require('./routes')
 const app = express()
 
 // cors開放http://localhost:xxxx 和 xxxxx.ngrok-free.app
-const whitelist = [/^http:\/\/localhost(:\d+)?$/, /\.ngrok-free\.app$/]
+const whitelist = [/^http:\/\/localhost(:\d+)?$/, /\.ngrok-free\.app$/, /\.vercel\.app$/]
 const corsOptions = {
   origin: function (origin, callback) {
     const pastCors = whitelist.some(regex => regex.test(origin))

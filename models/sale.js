@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Sale.init({
-    productId: DataTypes.INTEGER,
+    // productId: DataTypes.INTEGER,
     name: DataTypes.INTEGER,
     discount: DataTypes.FLOAT,
     threshold: DataTypes.INTEGER,

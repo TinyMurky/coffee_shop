@@ -46,20 +46,20 @@
   },
   {
     "id": "6",
-    "name": "Test October Special Sales",
+    "name": "Test November Special Sales",
     "banner_url": "https://i.imgur.com/9Cvf17R.png",
     "discount": 0.5,
-    "start_time": "2023-10-1",
-    "end_time": "2023-10-30",
+    "start_time": "2023-11-1",
+    "end_time": "2023-11-30",
     "repeat": true
   },
   {
     "id": "7",
-    "name": "Test not repeat October Special Sales",
+    "name": "Test not repeat November Special Sales",
     "banner_url": "https://i.imgur.com/9Cvf17R.png",
     "discount": 0.5,
-    "start_time": "2023-10-1",
-    "end_time": "2023-10-30",
+    "start_time": "2023-11-1",
+    "end_time": "2023-11-30",
     "repeat": false
   }
 ]
