@@ -42,7 +42,7 @@
       "id": 5,
       "name": "磨豆機，買二送一",
       "discount": 0.666666667,
-      "threshold": 2,
+      "threshold": 3,
       "start_time": "2023-1-1T00:00:00",
       "end_time": "2024-1-1T00:00:00",
       "productNameInclude": "磨豆機"

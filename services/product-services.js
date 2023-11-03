@@ -1,5 +1,6 @@
-const { Product, Category, SuperCategory, Variant, Image, Sequelize } = require('../models')
+const { Product, Category, SuperCategory, Variant, Image, Sale, Sequelize } = require('../models')
 const { getActiveEvent } = require('./event-services')
+const activatedHelpers = require('../helpers/event-sale-activated-helper')
 const customError = require('../libs/error/custom-error')
 const productHelpers = require('../helpers/product-helpers')
 
@@ -96,6 +97,7 @@ const productServices = {
     return productsByCategory
   },
   getProduct: async (id) => {
+    const today = new Date()
     const productData = await Product.findByPk(id, {
       required: true,
       include: [
@@ -113,6 +115,18 @@ const productServices = {
           model: Variant,
           required: true,
           attributes: ['id', 'variantName', 'variantPrice', 'variantDescription']
+        },
+        {
+          model: Sale,
+          required: false, // 沒有sale的也要找出來所以不可以true
+          as: 'salesOfProduct',
+          attributes: ['id', 'name', 'discount', 'threshold'],
+          where: {
+            ...activatedHelpers.getFullYearCondition(today)
+          },
+          through: {
+            attributes: []
+          }
         }
       ],
       order: [[Variant, 'variantPrice', 'ASC'], [Variant, 'id', 'ASC'], [Image, 'id', 'ASC']]
@@ -126,7 +140,9 @@ const productServices = {
     for (const variant of productData.Variants) {
       const originPrice = variant.variantPrice
       variant.dataValues.discountedPrice = Math.ceil(discountRatio * originPrice)
+      variant.dataValues.salesOfProduct = productData.dataValues.salesOfProduct
     }
+    delete productData.dataValues.salesOfProduct
     return productData
   },
   computeDiscountRatio: async () => {
