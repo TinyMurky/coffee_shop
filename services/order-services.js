@@ -33,6 +33,7 @@ const orderServices = {
 
     // 计算订单详情及总价
     const responseData = {
+      shippingPrice,
       totalPrice: shippingPrice,
       orderDetails: []
     }
@@ -54,10 +55,12 @@ const orderServices = {
         createdTime: item.createdAt
       })
     }
+    console.log('Totalprice', responseData.totalPrice)
+    console.log('shipppingprice', shippingPrice)
 
     // 更新订单总价
     order.totalPrice = responseData.totalPrice
-    await order.save()
+    await order.save({ fields: ['totalPrice'] })
 
     return responseData
   },
@@ -94,10 +97,13 @@ const orderServices = {
     })
 
     // 处理订单数据
+    let subTotal = 0
     const response = await Promise.all(
       orders.map(async (order) => {
         const orderItems = await Promise.all(order.OrderItems.map(async (item) => {
           const discountedPrice = await getCartDiscountPrice(item)
+          subTotal += discountedPrice * item.quantity
+
           return {
             productId: item.productId,
             productName: item.Product.name,
@@ -106,12 +112,14 @@ const orderServices = {
             productPrice: item.Variant.variantPrice,
             productQuantity: item.quantity,
             createdTime: item.createdAt,
-            discountedPrice
+            discountedPrice,
+            subTotal
           }
         }))
 
         return {
           orderId: order.id,
+          orderShippingPrice: order.totalPrice - subTotal,
           orderTotalPrice: order.totalPrice,
           orderItems
         }
