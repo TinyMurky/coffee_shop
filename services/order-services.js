@@ -96,14 +96,13 @@ const orderServices = {
       ]
     })
 
-    // 处理订单数据
-    let subTotal = 0
     const response = await Promise.all(
       orders.map(async (order) => {
+        let totalPriceWithoutShipping = 0
         const orderItems = await Promise.all(order.OrderItems.map(async (item) => {
           const discountedPrice = await getCartDiscountPrice(item)
-          subTotal += discountedPrice * item.quantity
-
+          const subTotal = discountedPrice * item.quantity
+          totalPriceWithoutShipping += subTotal
           return {
             productId: item.productId,
             productName: item.Product.name,
@@ -116,10 +115,9 @@ const orderServices = {
             subTotal
           }
         }))
-
         return {
           orderId: order.id,
-          orderShippingPrice: order.totalPrice - subTotal,
+          orderShippingPrice: order.totalPrice - totalPriceWithoutShipping,
           orderTotalPrice: order.totalPrice,
           orderItems
         }
