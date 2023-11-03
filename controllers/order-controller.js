@@ -10,7 +10,7 @@ const orderController = {
       // 先驗證輸入格式為email
 
       if (validator.validate(email)) {
-        await emailService.sendOrderedEmail(email, 'www.google.com')
+        await emailService.sendOrderedEmail(email, 'https://coffee-shop-eight-indol.vercel.app/order-management')
         return res.status(200).json({
           status: 'success',
           data: await orderServices.createOrder(email, orders)
