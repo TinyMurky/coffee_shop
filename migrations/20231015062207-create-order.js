@@ -21,6 +21,11 @@ module.exports = {
         type: Sequelize.STRING,
         defaultValue: '待付款'
       },
+      shipping_price: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 0
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

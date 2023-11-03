@@ -7,13 +7,13 @@ const orderController = {
   createOrder: async (req, res, next) => {
     try {
       const { email, orders } = req.body
-      // 先驗證輸入格式為email
+      const shippingPrice = req.body.shippingPrice ? req.body.shippingPrice : 0
 
       if (validator.validate(email)) {
         await emailService.sendOrderedEmail(email, 'https://coffee-shop-eight-indol.vercel.app/order-management')
         return res.status(200).json({
           status: 'success',
-          data: await orderServices.createOrder(email, orders)
+          data: await orderServices.createOrder(email, orders, shippingPrice)
         })
       } else {
         throw new customError.CustomError('the format of email is invalid', 'TypeError', 400)
