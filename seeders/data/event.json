@@ -43,23 +43,5 @@
     "start_time": "2023-12-1",
     "end_time": "2023-12-31",
     "repeat": true
-  },
-  {
-    "id": "6",
-    "name": "Test November Special Sales",
-    "banner_url": "https://i.imgur.com/9Cvf17R.png",
-    "discount": 0.5,
-    "start_time": "2023-11-1",
-    "end_time": "2023-11-30",
-    "repeat": true
-  },
-  {
-    "id": "7",
-    "name": "Test not repeat November Special Sales",
-    "banner_url": "https://i.imgur.com/9Cvf17R.png",
-    "discount": 0.5,
-    "start_time": "2023-11-1",
-    "end_time": "2023-11-30",
-    "repeat": false
   }
 ]
