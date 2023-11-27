@@ -1,7 +1,7 @@
 # coffee_shop
 打造可上線的咖啡豆專賣網頁，採前後端分離開發，此頁面為後端Github
 - [前端Github](https://github.com/ailsayang999/coffee-shop)
-- [上線體驗網址(部署於Vercel)](https://github.com/ailsayang999/coffee-shop)
+- [上線體驗網址(部署於Vercel)](https://coffee-shop-eight-indol.vercel.app/#home)
 
 ## Demo
 
